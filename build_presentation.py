@@ -1,17 +1,12 @@
 """
 build_presentation.py
-Generates: The Case for Nuclear Power in Zambia (8-slide .pptx).
-Built for executive / supervisor-grade review.
+The Case for Nuclear Power in Zambia (8-slide .pptx).
+Editorial / supervisor-grade rebuild.
 
-Structure:
-  1. Title + Big Idea
-  2. The 3-Minute Story (single paragraph)
-  3. The Hook — Siavonga 'Invisible Danger' vs. U.S. 'Precision Monitoring'
-  4. The Vision — Nuclear as Zambia's Baseload Future
-  5. Safety Mastery — 59.12 mrem proof (DOE REMS 2024)
-  6. Strategic Resource — Zambia's Uranium Potential
-  7. Economic Impact — Powering the 3-Million-Tonne Copper Goal
-  8. Roadmap — Next Steps
+Palette: forest green (Zambian flag), burnt copper, gold accent,
+parchment background, charcoal type. Argument leans hard on
+Zambia-specific evidence: Kariba 2024 collapse, drought-cost ledger,
+African nuclear leadership gap.
 
 Run:
   pip install -r requirements.txt
@@ -19,31 +14,40 @@ Run:
 """
 
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.chart.data import CategoryChartData
-from pptx.enum.chart import XL_CHART_TYPE, XL_LEGEND_POSITION, XL_LABEL_POSITION
+from pptx.enum.chart import (XL_CHART_TYPE, XL_LEGEND_POSITION,
+                             XL_LABEL_POSITION)
 
 OUTPUT = "The_Case_for_Nuclear_Power_in_Zambia.pptx"
 
-NAVY = RGBColor(0x0A, 0x1F, 0x3D)
-NAVY_DEEP = RGBColor(0x06, 0x14, 0x2A)
-COPPER = RGBColor(0xCC, 0x7A, 0x2E)
-COPPER_LIGHT = RGBColor(0xE8, 0xA8, 0x60)
+# Zambian-inspired palette
+PARCH = RGBColor(0xF4, 0xEF, 0xE4)
+PARCH_DEEP = RGBColor(0xEA, 0xE2, 0xCF)
+INK = RGBColor(0x14, 0x18, 0x1F)
+INK_SOFT = RGBColor(0x3A, 0x40, 0x4A)
+MUTED = RGBColor(0x6B, 0x70, 0x78)
+RULE = RGBColor(0xC2, 0xB8, 0xA0)
+
+GREEN = RGBColor(0x14, 0x40, 0x2C)       # Zambian flag green
+GREEN_DEEP = RGBColor(0x08, 0x26, 0x18)
+GREEN_LIGHT = RGBColor(0x2E, 0x66, 0x49)
+
+COPPER = RGBColor(0xB5, 0x4C, 0x1A)       # Zambian copper
+COPPER_LIGHT = RGBColor(0xD9, 0x79, 0x33)
+GOLD = RGBColor(0xCF, 0xA3, 0x3C)
+
+CRISIS = RGBColor(0x8C, 0x1F, 0x1F)
+CRISIS_DEEP = RGBColor(0x5C, 0x12, 0x12)
+
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-OFFWHITE = RGBColor(0xF7, 0xF5, 0xF0)
-INK = RGBColor(0x12, 0x18, 0x24)
-MUTED = RGBColor(0x6B, 0x72, 0x80)
-CRISIS = RGBColor(0xB3, 0x2B, 0x2B)
-CRISIS_DEEP = RGBColor(0x7C, 0x18, 0x18)
-SLATE = RGBColor(0x2A, 0x33, 0x44)
-RULE = RGBColor(0xC8, 0xCE, 0xD6)
-SUCCESS = RGBColor(0x1B, 0x5E, 0x3A)
-SOLAR = RGBColor(0xE8, 0xA8, 0x60)
-COAL = RGBColor(0x55, 0x5B, 0x66)
-HFO = RGBColor(0x99, 0x6B, 0x3A)
+OFFWHITE = RGBColor(0xFA, 0xF7, 0xF0)
+
+TITLE_FONT = "Georgia"
+BODY_FONT = "Calibri"
 
 CITATIONS = {
     "doe": "U.S. DOE REMS 2024 Report",
@@ -52,51 +56,58 @@ CITATIONS = {
     "mines": "Zambia Ministry of Mines — Annual Mining Statistics",
     "zesco": "ZESCO Annual Reports 2023-2024",
     "siavonga": "Siavonga Uranium Baseline Survey (2024)",
+    "imf": "IMF Article IV Consultation — Zambia 2024",
+    "wna": "World Nuclear Association Country Profiles (2024)",
 }
 
 BIG_IDEA = (
-    "Zambia must convert its domestic uranium reserves and existing "
-    "radiological safety expertise into nuclear baseload power — because "
-    "every drought year proves that hydropower alone is no longer an "
-    "energy strategy, it is a gamble against a climate we can no longer "
-    "afford to lose."
+    "Zambia is one of the few nations on earth that sits on its own "
+    "uranium, runs a 50-year radiological regulator, and holds a "
+    "Cabinet-approved nuclear policy — yet still loses billions to "
+    "drought every cycle; only enacting the Nuclear Bill turns that "
+    "paradox into the drought-proof power our industrialisation demands."
 )
 
-THREE_MIN_STORY = (
-    "Imagine a country that owns its uranium, runs a Radiation Protection "
-    "Authority, has a Cabinet-approved Nuclear Policy, and has signed "
+THREE_MIN = (
+    "Zambia is one of a handful of countries on earth that exports its "
+    "own uranium, runs a fifty-year-old Radiation Protection Authority, "
+    "holds a Cabinet-approved 2020 Nuclear Policy, and has signed "
     "cooperation agreements with ROSATOM, the U.S. IP3 Allied Nuclear "
-    "Partners, and South Korea's KAERI — and yet, in 2026, still depends "
-    "on a single river system for eighty-four percent of its electricity. "
-    "That country is Zambia. Every drought repeats the same story: the "
-    "2015/16 dry year cost us roughly one thousand megawatts of "
-    "generation and four hundred and forty million U.S. dollars in "
-    "unbudgeted imports; the 2023–2024 Kariba crisis triggered months of "
-    "load-shedding that stalled the very copper mines that fund the "
-    "national budget. Meanwhile, in Siavonga, the 2024 Uranium Baseline "
-    "Survey detected unmonitored uranium in water and household dust — "
-    "communities living beside the resource itself, without instruments, "
-    "without a baseline, without accountability. That is radiological "
-    "fear. Contrast that with the United States, where my analysis of "
-    "the Department of Energy Radiation Exposure Monitoring System "
-    "tracks twenty-two thousand workers and shows an average individual "
-    "dose of just fifty-nine point one two millirem per year — about one "
-    "point two percent of the federal occupational limit, with workforce "
-    "growth producing zero increase in individual exposure. That is "
-    "industrial mastery. Same element, two completely different "
-    "outcomes; the variable is the system. Zambia already participates "
-    "in that system through the IAEA Milestone Approach. We have the "
-    "uranium. We have the safety institution. We have the policy. We "
-    "have the partners. And we have a three-million-tonne copper "
-    "ambition that no hydropower fleet on this continent can power "
-    "reliably. The missing piece is legislative: pass the Nuclear Bill, "
-    "fund radiological monitoring nationwide starting in Siavonga, and "
-    "greenlight Small Modular Reactor pre-feasibility. The fuel is "
-    "under our feet. The expertise is on our payroll. The bill is on "
-    "the table. Sign it."
+    "Partners, and South Korea's KAERI — and yet, in 2026, still "
+    "depends on a single river system for eighty-four percent of its "
+    "electricity. In late 2024 that single dependency cost us up to "
+    "twenty-one hours of load-shedding per day. Copper mines throttled. "
+    "The kwacha wobbled. The IMF estimated roughly two percent of GDP "
+    "evaporated in drought-driven blackouts. And it is not a one-off: "
+    "2015/16 cost us a thousand megawatts and four hundred and forty "
+    "million dollars in emergency imports; 2018/19 took eight hundred "
+    "and seventy-two megawatts; 2023/24 was the worst drought in forty "
+    "years. Meanwhile, in Siavonga, the 2024 Uranium Baseline Survey "
+    "detected unmonitored uranium in drinking water and household dust "
+    "— communities living beside the very resource that should be "
+    "fuelling our future, with no instruments and no baseline. That is "
+    "radiological fear. Contrast that with the United States, where my "
+    "analysis of the Department of Energy Radiation Exposure Monitoring "
+    "System covers twenty-two thousand workers averaging just "
+    "fifty-nine point one-two millirem of exposure per year — about "
+    "one point two percent of the federal occupational limit, with "
+    "workforce growth producing zero rise in individual dose. That is "
+    "industrial mastery. Same element, two opposite outcomes; the "
+    "variable is the system. While we debate, Egypt is building four "
+    "reactors at El Dabaa, Kenya is targeting first criticality by "
+    "2034, and South Africa has been operating Koeberg for over forty "
+    "years. We have the uranium. We have the regulator. We have the "
+    "policy. We have the partners. We have a three-million-tonne "
+    "copper ambition that no hydropower fleet on this continent can "
+    "power. What we do not have is the legislative signature. Pass the "
+    "Nuclear Bill, fund radiological monitoring nationwide starting in "
+    "Siavonga, and greenlight Small Modular Reactor pre-feasibility. "
+    "The fuel is under our feet. The expertise is on our payroll. The "
+    "bill is on the table. Sign it."
 )
 
 
+# ---------- helpers ----------
 def set_bg(slide, color):
     f = slide.background.fill
     f.solid()
@@ -114,6 +125,13 @@ def rect(slide, left, top, width, height, color):
 
 def line_rule(slide, left, top, width, color, weight=1.0):
     s = slide.shapes.add_connector(1, left, top, left + width, top)
+    s.line.color.rgb = color
+    s.line.width = Pt(weight)
+    return s
+
+
+def vline(slide, left, top, height, color, weight=1.0):
+    s = slide.shapes.add_connector(1, left, top, left, top + height)
     s.line.color.rgb = color
     s.line.width = Pt(weight)
     return s
@@ -143,7 +161,7 @@ def textbox(slide, left, top, width, height, runs, *,
             text = text[1:]
         run = p.add_run()
         run.text = text
-        run.font.name = r.get("font", "Calibri")
+        run.font.name = r.get("font", BODY_FONT)
         run.font.size = Pt(r["size"])
         run.font.bold = r.get("bold", False)
         run.font.italic = r.get("italic", False)
@@ -151,74 +169,48 @@ def textbox(slide, left, top, width, height, runs, *,
     return tb
 
 
-def simple_text(slide, left, top, width, height, text, *,
-                size=16, bold=False, italic=False, color=INK,
-                align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
-                font="Calibri", line_spacing=1.2):
+def t(slide, left, top, width, height, text, *,
+      size=14, bold=False, italic=False, color=INK,
+      align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
+      font=BODY_FONT, line_spacing=1.25):
     return textbox(slide, left, top, width, height,
                    [{"text": text, "size": size, "bold": bold,
                      "italic": italic, "color": color, "font": font}],
                    align=align, anchor=anchor, line_spacing=line_spacing)
 
 
-def eyebrow(slide, left, top, text, color=COPPER):
-    return simple_text(slide, left, top, Inches(10), Inches(0.3),
-                       text, size=11, bold=True, color=color)
+def eyebrow(slide, left, top, text):
+    return t(slide, left, top, Inches(10), Inches(0.3),
+             text, size=10, bold=True, color=COPPER, font=BODY_FONT)
 
 
-def slide_header(slide, eyebrow_text, title, kicker=None):
-    eyebrow(slide, Inches(0.6), Inches(0.45), eyebrow_text)
-    simple_text(slide, Inches(0.6), Inches(0.75), Inches(12.1),
-                Inches(0.75),
-                title, size=30, bold=True, color=NAVY)
-    line_rule(slide, Inches(0.6), Inches(1.45), Inches(1.2), COPPER, 1.5)
+def header_block(slide, eyebrow_text, title, kicker=None):
+    eyebrow(slide, Inches(0.6), Inches(0.50), eyebrow_text)
+    t(slide, Inches(0.6), Inches(0.80), Inches(12.1), Inches(0.85),
+      title, size=30, bold=True, color=GREEN_DEEP, font=TITLE_FONT,
+      line_spacing=1.05)
+    line_rule(slide, Inches(0.6), Inches(1.65), Inches(0.8), COPPER, 2.0)
     if kicker:
-        simple_text(slide, Inches(0.6), Inches(1.55), Inches(12.1),
-                    Inches(0.4),
-                    kicker, size=13, italic=True, color=MUTED)
+        t(slide, Inches(0.6), Inches(1.78), Inches(12.1), Inches(0.4),
+          kicker, size=13, italic=True, color=INK_SOFT)
 
 
-def slide_footer(slide, n, total, citations):
-    line_rule(slide, Inches(0), Inches(7.25), Inches(13.333),
+def footer(slide, n, total, cites):
+    line_rule(slide, Inches(0.6), Inches(7.18), Inches(12.1),
               RULE, 0.5)
-    rect(slide, Inches(0), Inches(7.25), Inches(0.7), Inches(0.05),
-         COPPER)
-    simple_text(slide, Inches(0.5), Inches(7.30), Inches(10.5),
-                Inches(0.20),
-                "Sources: " + " · ".join(citations),
-                size=8, italic=True, color=MUTED)
-    simple_text(slide, Inches(11.4), Inches(7.30), Inches(1.7),
-                Inches(0.20),
-                f"{n} / {total}  ·  E. Mwaba",
-                size=8, bold=True, color=SLATE, align=PP_ALIGN.RIGHT)
+    t(slide, Inches(0.6), Inches(7.24), Inches(10.5), Inches(0.20),
+      "SOURCES: " + " · ".join(cites),
+      size=8, color=MUTED, italic=True)
+    t(slide, Inches(11.3), Inches(7.24), Inches(1.8), Inches(0.20),
+      f"{n} / {total}   E. MWABA",
+      size=8, bold=True, color=INK_SOFT, align=PP_ALIGN.RIGHT)
 
 
-def set_notes(slide, text):
+def notes(slide, text):
     slide.notes_slide.notes_text_frame.text = text
 
 
-def style_chart_text(chart, color=INK, size=9):
-    """Apply consistent text formatting across all chart text elements."""
-    try:
-        for plot in chart.plots:
-            if plot.has_data_labels:
-                dl = plot.data_labels
-                dl.font.size = Pt(size)
-                dl.font.color.rgb = color
-                dl.font.name = "Calibri"
-    except Exception:
-        pass
-    try:
-        for axis in (chart.category_axis, chart.value_axis):
-            tf = axis.tick_labels
-            tf.font.size = Pt(size)
-            tf.font.color.rgb = color
-            tf.font.name = "Calibri"
-    except Exception:
-        pass
-
-
-def color_series_points(series, colors):
+def color_points(series, colors):
     for i, pt in enumerate(series.points):
         if i >= len(colors):
             break
@@ -227,474 +219,217 @@ def color_series_points(series, colors):
         pt.format.line.fill.background()
 
 
+def style_chart(chart, label_color=INK, axis_color=INK_SOFT, size=10):
+    try:
+        for plot in chart.plots:
+            if plot.has_data_labels:
+                dl = plot.data_labels
+                dl.font.size = Pt(size + 1)
+                dl.font.color.rgb = label_color
+                dl.font.bold = True
+                dl.font.name = BODY_FONT
+    except Exception:
+        pass
+    try:
+        for axis in (chart.category_axis, chart.value_axis):
+            tl = axis.tick_labels
+            tl.font.size = Pt(size)
+            tl.font.color.rgb = axis_color
+            tl.font.name = BODY_FONT
+    except Exception:
+        pass
+
+
 # -----------------------------------------------------------------------
-# SLIDE 1 — TITLE + BIG IDEA
+# SLIDE 1 — COVER + BIG IDEA
 # -----------------------------------------------------------------------
-def slide_title(prs):
+def slide_cover(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, NAVY_DEEP)
+    set_bg(s, PARCH)
 
-    rect(s, Inches(0.6), Inches(0.6), Inches(0.08), Inches(0.45), COPPER)
-    simple_text(s, Inches(0.85), Inches(0.58), Inches(10), Inches(0.4),
-                "ENERGY SECURITY  ·  REPUBLIC OF ZAMBIA  ·  2026",
-                size=12, bold=True, color=COPPER_LIGHT)
+    # Left vertical band — Zambian green
+    rect(s, Inches(0), Inches(0), Inches(0.45), Inches(7.5), GREEN_DEEP)
+    rect(s, Inches(0.45), Inches(0), Inches(0.08), Inches(7.5), COPPER)
+    rect(s, Inches(0.53), Inches(0), Inches(0.04), Inches(7.5), GOLD)
 
+    # Eyebrow
+    t(s, Inches(1.0), Inches(0.65), Inches(11), Inches(0.3),
+      "A POLICY BRIEF  ·  REPUBLIC OF ZAMBIA  ·  2026",
+      size=11, bold=True, color=COPPER, font=BODY_FONT)
+    line_rule(s, Inches(1.0), Inches(0.95), Inches(0.6), COPPER, 1.5)
+
+    # Title — large editorial serif
     textbox(
-        s, Inches(0.6), Inches(1.55), Inches(12.1), Inches(2.5),
+        s, Inches(1.0), Inches(1.30), Inches(11.5), Inches(2.6),
         [
-            {"text": "We already own", "size": 60, "bold": True,
-             "color": WHITE},
-            {"text": "\nthe solution.", "size": 60, "bold": True,
-             "color": COPPER_LIGHT, "space_after": 0},
+            {"text": "The Case for", "size": 44, "bold": False,
+             "color": INK_SOFT, "font": TITLE_FONT, "italic": True},
+            {"text": "\nNuclear Power", "size": 64, "bold": True,
+             "color": GREEN_DEEP, "font": TITLE_FONT, "space_after": 0},
+            {"text": "\nin Zambia.", "size": 64, "bold": True,
+             "color": COPPER, "font": TITLE_FONT, "space_after": 0},
         ],
         line_spacing=1.0,
     )
 
-    line_rule(s, Inches(0.6), Inches(4.15), Inches(2.5), COPPER, 1.5)
-
-    simple_text(s, Inches(0.6), Inches(4.30), Inches(12.1), Inches(0.5),
-                "The Case for Nuclear Power in Zambia",
-                size=24, color=WHITE)
-
-    # BIG IDEA PANEL
-    rect(s, Inches(0.6), Inches(5.10), Inches(12.1), Inches(1.50),
-         RGBColor(0x12, 0x28, 0x4A))
-    rect(s, Inches(0.6), Inches(5.10), Inches(0.10), Inches(1.50),
+    # Big Idea panel
+    rect(s, Inches(1.0), Inches(4.85), Inches(11.5), Inches(1.85),
+         GREEN_DEEP)
+    rect(s, Inches(1.0), Inches(4.85), Inches(0.10), Inches(1.85),
          COPPER)
-    simple_text(s, Inches(0.85), Inches(5.20), Inches(11.7),
-                Inches(0.3),
-                "THE  BIG  IDEA",
-                size=11, bold=True, color=COPPER_LIGHT)
-    simple_text(s, Inches(0.85), Inches(5.50), Inches(11.7),
-                Inches(1.05),
-                BIG_IDEA,
-                size=14, italic=True, color=WHITE, line_spacing=1.3)
+    t(s, Inches(1.30), Inches(4.95), Inches(11.0), Inches(0.3),
+      "THE  BIG  IDEA",
+      size=10, bold=True, color=GOLD)
+    t(s, Inches(1.30), Inches(5.25), Inches(11.0), Inches(1.5),
+      BIG_IDEA,
+      size=14, italic=True, color=WHITE, font=TITLE_FONT,
+      line_spacing=1.30)
 
-    simple_text(s, Inches(0.6), Inches(6.85), Inches(8), Inches(0.25),
-                "Prepared by  ELIZABETH MWABA",
-                size=10, bold=True, color=WHITE)
-    simple_text(s, Inches(0.6), Inches(7.10), Inches(8), Inches(0.20),
-                "Radiological Analyst  ·  Supervisor Review Brief",
-                size=8, color=RGBColor(0x99, 0xA3, 0xB3))
+    # Author block
+    t(s, Inches(1.0), Inches(6.95), Inches(8), Inches(0.25),
+      "PREPARED BY  ELIZABETH MWABA",
+      size=10, bold=True, color=INK)
+    t(s, Inches(1.0), Inches(7.18), Inches(8), Inches(0.25),
+      "Radiological Analyst  ·  Supervisor Review Brief",
+      size=9, italic=True, color=MUTED)
 
-    set_notes(s,
-        "[Opening] Three minutes. One argument. The case I'm making is "
-        "captured in one sentence — Zambia must convert its domestic "
-        "uranium and its existing radiological safety expertise into "
-        "nuclear baseload power, because hydropower alone has stopped "
-        "being a strategy and become a climate gamble we cannot keep "
-        "paying for.")
+    notes(s,
+        "[Opening] Three minutes. One argument. Captured in one "
+        "sentence on this slide: Zambia is among the very few nations "
+        "on earth that already owns the uranium, the regulator, and "
+        "the nuclear policy — yet still loses billions every drought "
+        "cycle. Only enacting the Nuclear Bill converts that paradox "
+        "into drought-proof energy. Let me walk you through why this "
+        "is no longer optional.")
 
 
 # -----------------------------------------------------------------------
-# SLIDE 2 — THE 3-MINUTE STORY
+# SLIDE 2 — 3-MINUTE STORY
 # -----------------------------------------------------------------------
 def slide_story(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
+    set_bg(s, PARCH)
+    header_block(s,
                  "PROLOGUE  ·  THE 3-MINUTE STORY",
                  "If I had no slides, this is what I would say.",
                  "One paragraph. Three minutes. The full argument.")
 
-    rect(s, Inches(0.6), Inches(2.15), Inches(12.1), Inches(4.85),
-         WHITE)
-    rect(s, Inches(0.6), Inches(2.15), Inches(0.12), Inches(4.85),
+    # Pull-quote frame
+    rect(s, Inches(0.6), Inches(2.30), Inches(12.1), Inches(4.65),
+         OFFWHITE)
+    rect(s, Inches(0.6), Inches(2.30), Inches(0.12), Inches(4.65),
          COPPER)
+    rect(s, Inches(12.58), Inches(2.30), Inches(0.12), Inches(4.65),
+         GREEN_DEEP)
 
-    simple_text(s, Inches(0.95), Inches(2.30), Inches(11.5),
-                Inches(0.3),
-                "DELIVERED AT EXECUTIVE CADENCE  ·  ~360 WORDS",
-                size=10, bold=True, color=COPPER)
+    t(s, Inches(0.95), Inches(2.45), Inches(11.5), Inches(0.3),
+      "EXECUTIVE  CADENCE  ·  ~390 WORDS  ·  ~3:00",
+      size=9, bold=True, color=COPPER)
 
-    simple_text(s, Inches(0.95), Inches(2.65), Inches(11.5),
-                Inches(4.30),
-                THREE_MIN_STORY,
-                size=11, color=INK, line_spacing=1.32)
+    t(s, Inches(0.95), Inches(2.80), Inches(11.5), Inches(4.10),
+      THREE_MIN,
+      size=11, color=INK, font=BODY_FONT, line_spacing=1.34)
 
-    slide_footer(s, 2, 8,
-                 [CITATIONS["doe"], CITATIONS["zesco"],
-                  CITATIONS["siavonga"], CITATIONS["ndp"]])
-    set_notes(s,
-        "[Use this slide if asked 'give me the pitch in one breath.' "
-        "Read or paraphrase the paragraph as drafted; it lands on the "
-        "final imperative: Sign it.]")
+    footer(s, 2, 8,
+           [CITATIONS["doe"], CITATIONS["zesco"],
+            CITATIONS["siavonga"], CITATIONS["imf"]])
+    notes(s,
+        "[Read or paraphrase the paragraph at executive cadence. Build "
+        "tension: paradox → drought cost ledger → Siavonga fear → DOE "
+        "mastery proof → African competition → ask. End on the "
+        "imperative: Sign it.]")
 
 
 # -----------------------------------------------------------------------
-# SLIDE 3 — THE HOOK
+# SLIDE 3 — THE HOOK (SIAVONGA vs DOE)
 # -----------------------------------------------------------------------
 def slide_hook(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
+    set_bg(s, PARCH)
+    header_block(s,
                  "01  ·  THE HOOK",
                  "Same element. Two realities.",
                  "Zambians and Americans both live with uranium. "
                  "Only one nation measures it.")
 
-    panel_y = Inches(2.30)
-    panel_h = Inches(4.30)
+    panel_y = Inches(2.40)
+    panel_h = Inches(4.25)
 
+    # LEFT — Siavonga
     rect(s, Inches(0.6), panel_y, Inches(6.05), panel_h, CRISIS_DEEP)
-    rect(s, Inches(0.6), panel_y, Inches(0.12), panel_h, CRISIS)
-    simple_text(s, Inches(0.85), Inches(2.45), Inches(5.6), Inches(0.3),
-                "ZAMBIA  ·  SIAVONGA  ·  2024",
-                size=10, bold=True, color=COPPER_LIGHT)
-    simple_text(s, Inches(0.85), Inches(2.80), Inches(5.6), Inches(1.6),
-                "Uranium in the water.\nUranium in the dust.",
-                size=28, bold=True, color=WHITE, line_spacing=1.05)
-    simple_text(s, Inches(0.85), Inches(4.65), Inches(5.6), Inches(1.1),
-                "Zero monitoring.  Zero baseline.\n"
-                "Zero accountability.",
-                size=13, color=RGBColor(0xF2, 0xCF, 0xCF),
-                line_spacing=1.3)
-    line_rule(s, Inches(0.85), Inches(5.85), Inches(1.0), COPPER, 1.0)
-    simple_text(s, Inches(0.85), Inches(5.95), Inches(5.6), Inches(0.5),
-                "RADIOLOGICAL  FEAR",
-                size=14, bold=True, color=COPPER_LIGHT)
+    rect(s, Inches(0.6), panel_y, Inches(0.12), panel_h, GOLD)
+    t(s, Inches(0.95), Inches(2.55), Inches(5.5), Inches(0.3),
+      "ZAMBIA  ·  SIAVONGA  ·  2024",
+      size=10, bold=True, color=GOLD)
+    t(s, Inches(0.95), Inches(2.90), Inches(5.5), Inches(1.7),
+      "Uranium in the water.\nUranium in the dust.",
+      size=30, bold=True, color=WHITE, font=TITLE_FONT,
+      line_spacing=1.05)
+    t(s, Inches(0.95), Inches(4.85), Inches(5.5), Inches(1.1),
+      "Zero monitoring.  Zero baseline.\nZero accountability.",
+      size=13, color=RGBColor(0xF2, 0xCF, 0xCF),
+      line_spacing=1.3, italic=True)
+    line_rule(s, Inches(0.95), Inches(5.95), Inches(0.7), GOLD, 1.5)
+    t(s, Inches(0.95), Inches(6.05), Inches(5.5), Inches(0.4),
+      "RADIOLOGICAL  FEAR",
+      size=12, bold=True, color=GOLD)
 
-    rect(s, Inches(6.85), panel_y, Inches(5.85), panel_h, NAVY)
-    rect(s, Inches(6.85), panel_y, Inches(0.12), panel_h, COPPER)
-    simple_text(s, Inches(7.1), Inches(2.45), Inches(5.5), Inches(0.3),
-                "USA  ·  DOE NUCLEAR ENTERPRISE  ·  2014-2024",
-                size=10, bold=True, color=COPPER_LIGHT)
-    simple_text(s, Inches(7.1), Inches(2.80), Inches(5.5), Inches(1.6),
-                "22,000 workers.\n59.12 mrem average.",
-                size=28, bold=True, color=WHITE, line_spacing=1.05)
-    simple_text(s, Inches(7.1), Inches(4.65), Inches(5.5), Inches(1.1),
-                "Every dose tracked.  Every site audited.\n"
-                "Every year. For a decade.",
-                size=13, color=RGBColor(0xCF, 0xD8, 0xE3),
-                line_spacing=1.3)
-    line_rule(s, Inches(7.1), Inches(5.85), Inches(1.0), COPPER, 1.0)
-    simple_text(s, Inches(7.1), Inches(5.95), Inches(5.5), Inches(0.5),
-                "INDUSTRIAL  MASTERY",
-                size=14, bold=True, color=COPPER_LIGHT)
+    # RIGHT — DOE
+    rect(s, Inches(6.85), panel_y, Inches(5.85), panel_h, GREEN_DEEP)
+    rect(s, Inches(6.85), panel_y, Inches(0.12), panel_h, COPPER_LIGHT)
+    t(s, Inches(7.2), Inches(2.55), Inches(5.4), Inches(0.3),
+      "USA  ·  DOE NUCLEAR ENTERPRISE  ·  2014-2024",
+      size=10, bold=True, color=COPPER_LIGHT)
+    t(s, Inches(7.2), Inches(2.90), Inches(5.4), Inches(1.7),
+      "22,000 workers.\n59.12 mrem average.",
+      size=30, bold=True, color=WHITE, font=TITLE_FONT,
+      line_spacing=1.05)
+    t(s, Inches(7.2), Inches(4.85), Inches(5.4), Inches(1.1),
+      "Every dose tracked.  Every site audited.\n"
+      "Every year. For a decade.",
+      size=13, color=RGBColor(0xCF, 0xE0, 0xD2),
+      line_spacing=1.3, italic=True)
+    line_rule(s, Inches(7.2), Inches(5.95), Inches(0.7), COPPER_LIGHT, 1.5)
+    t(s, Inches(7.2), Inches(6.05), Inches(5.4), Inches(0.4),
+      "INDUSTRIAL  MASTERY",
+      size=12, bold=True, color=COPPER_LIGHT)
 
-    simple_text(s, Inches(0.6), Inches(6.80), Inches(12.1), Inches(0.4),
-                "The gap is not the science. It is the system.",
-                size=14, bold=True, color=NAVY, align=PP_ALIGN.CENTER)
+    # Kicker
+    t(s, Inches(0.6), Inches(6.85), Inches(12.1), Inches(0.3),
+      "The gap is not the science. It is the system.",
+      size=13, bold=True, color=GREEN_DEEP, font=TITLE_FONT,
+      italic=True, align=PP_ALIGN.CENTER)
 
-    set_notes(s,
-        "[The Hook] Picture two scenes. Siavonga: uranium in water, "
-        "uranium in dust, no instruments — radiological fear. The U.S. "
-        "nuclear enterprise: twenty-two thousand workers, 59.12 mrem "
-        "average, every dose tracked for a decade — industrial mastery. "
-        "Same element, two different outcomes. The variable is the "
-        "system, not the uranium. Zambia must close that gap, and the "
-        "expertise to do it already lives inside our Radiation "
-        "Protection Authority.")
-    slide_footer(s, 3, 8,
-                 [CITATIONS["siavonga"], CITATIONS["doe"]])
+    footer(s, 3, 8, [CITATIONS["siavonga"], CITATIONS["doe"]])
+    notes(s,
+        "[The Hook] Picture two scenes. Siavonga: uranium in the "
+        "water, uranium in the dust, no instruments — radiological "
+        "fear. The U.S. nuclear enterprise: twenty-two thousand workers, "
+        "an average of 59.12 mrem a year, every dose tracked, every "
+        "year, for a decade — industrial mastery. Same element. Same "
+        "physics. Two completely different outcomes. The variable is "
+        "the system around it. The Radiation Protection Authority "
+        "already builds part of that system in Zambia. We just have "
+        "not finished it.")
 
 
 # -----------------------------------------------------------------------
-# SLIDE 4 — VISION: NUCLEAR AS BASELOAD (CHART: ENERGY MIX DONUT)
+# SLIDE 4 — THE HOSTAGE MATH (drought cost ledger + energy mix)
 # -----------------------------------------------------------------------
-def slide_vision(prs):
-    s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
-                 "02  ·  THE VISION",
-                 "Nuclear as Zambia's baseload future.",
-                 "We cannot industrialise a country on rainfall. "
-                 "Nuclear is weather-proof power.")
+def slide_hostage(prs):
+    s = prs.slides.add_slide(prs.slide_invariants if False else prs.slide_layouts[6])
+    set_bg(s, PARCH)
+    header_block(s,
+                 "02  ·  THE HOSTAGE MATH",
+                 "Zambia's economy is hostage to the rain.",
+                 "Eight in every ten kilowatts depend on rainfall we "
+                 "no longer get.")
 
-    # CHART: ENERGY MIX DONUT
+    # CHART — Drought cost ledger (3 dry-year deficits in MW)
     chart_data = CategoryChartData()
-    chart_data.categories = ["Hydro", "Coal", "Solar", "HFO"]
-    chart_data.add_series("2019 Mix", (84, 10, 3, 3))
-    cx, cy, cw, ch = Inches(0.6), Inches(2.20), Inches(5.8), Inches(4.6)
-    chart_shape = s.shapes.add_chart(
-        XL_CHART_TYPE.DOUGHNUT, cx, cy, cw, ch, chart_data
-    )
-    chart = chart_shape.chart
-    chart.has_title = False
-    chart.has_legend = True
-    chart.legend.position = XL_LEGEND_POSITION.BOTTOM
-    chart.legend.include_in_layout = False
-    chart.legend.font.size = Pt(10)
-    chart.legend.font.color.rgb = INK
-    plot = chart.plots[0]
-    plot.has_data_labels = True
-    dl = plot.data_labels
-    dl.show_percentage = False
-    dl.show_value = True
-    dl.font.size = Pt(11)
-    dl.font.bold = True
-    dl.font.color.rgb = WHITE
-    color_series_points(chart.series[0],
-                        [CRISIS, COAL, SOLAR, HFO])
-
-    # Caption under chart
-    simple_text(s, Inches(0.6), Inches(6.75), Inches(5.8), Inches(0.4),
-                "Zambia's 2019 generation mix (%). Source: MoE / "
-                "ZESCO 2019.",
-                size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
-
-    # RIGHT — KEY POINTS
-    rect(s, Inches(6.85), Inches(2.20), Inches(5.85), Inches(4.6),
-         WHITE)
-    rect(s, Inches(6.85), Inches(2.20), Inches(0.12), Inches(4.6),
-         COPPER)
-
-    simple_text(s, Inches(7.1), Inches(2.35), Inches(5.4), Inches(0.3),
-                "WHY THIS MATTERS", size=11, bold=True, color=COPPER)
-
-    points = [
-        ("THE PROBLEM",
-         "84% hydropower dependence makes Zambia's economy a "
-         "hostage to the rain."),
-        ("THE SOLUTION",
-         "Nuclear delivers 24/7, weather-proof baseload "
-         "independent of Kariba reservoir levels."),
-        ("THE READINESS",
-         "Zambia is an IAEA Member State and the Radiation "
-         "Protection Authority (RPA) is already in place."),
-    ]
-    py = 2.75
-    for head, body in points:
-        simple_text(s, Inches(7.1), Inches(py), Inches(5.4),
-                    Inches(0.3),
-                    head, size=11, bold=True, color=NAVY)
-        simple_text(s, Inches(7.1), Inches(py + 0.32), Inches(5.4),
-                    Inches(1.05),
-                    body, size=12, color=INK, line_spacing=1.3)
-        py += 1.35
-
-    set_notes(s,
-        "[The Vision] Eighty-four percent of Zambia's electricity comes "
-        "from hydropower. That is not diversification — that is a single "
-        "point of failure with a weather dependency. Nuclear, by "
-        "contrast, runs at roughly ninety percent capacity factor "
-        "regardless of rainfall. And Zambia is not starting cold: we "
-        "are an IAEA Member State, and our Radiation Protection "
-        "Authority has been managing radiological risk for decades. We "
-        "cannot industrialise a country on intermittent power. Nuclear "
-        "isn't just an option; it is a necessity for a drought-resilient "
-        "Zambia.")
-    slide_footer(s, 4, 8,
-                 [CITATIONS["zesco"], CITATIONS["ndp"],
-                  CITATIONS["iaea"]])
-
-
-# -----------------------------------------------------------------------
-# SLIDE 5 — SAFETY MASTERY (CHART: 59.12 vs 5,000 mrem)
-# -----------------------------------------------------------------------
-def slide_safety(prs):
-    s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
-                 "03  ·  SAFETY MASTERY",
-                 "The proof is in the data.",
-                 "10-year DOE record across 22,000 workers — "
-                 "the safety model Zambia would inherit.")
-
-    # CHART: HORIZONTAL BAR — exposure comparison
-    chart_data = CategoryChartData()
-    chart_data.categories = [
-        "Avg. Technician (DOE 2024)",
-        "Natural Background",
-        "Federal Occupational Limit",
-    ]
-    chart_data.add_series("mrem / year", (59.12, 300, 5000))
-    cx, cy, cw, ch = Inches(0.6), Inches(2.20), Inches(7.4), Inches(4.4)
-    chart_shape = s.shapes.add_chart(
-        XL_CHART_TYPE.BAR_CLUSTERED, cx, cy, cw, ch, chart_data
-    )
-    chart = chart_shape.chart
-    chart.has_title = False
-    chart.has_legend = False
-    plot = chart.plots[0]
-    plot.has_data_labels = True
-    dl = plot.data_labels
-    dl.position = XL_LABEL_POSITION.OUTSIDE_END
-    dl.font.size = Pt(11)
-    dl.font.bold = True
-    dl.font.color.rgb = NAVY
-    color_series_points(chart.series[0],
-                        [SUCCESS, COPPER, CRISIS])
-    style_chart_text(chart, color=INK, size=10)
-
-    simple_text(s, Inches(0.6), Inches(6.65), Inches(7.4), Inches(0.4),
-                "Radiation exposure (mrem/yr). "
-                "Source: U.S. DOE REMS 2024.",
-                size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
-
-    # RIGHT — HERO STAT + PROOFS
-    rect(s, Inches(8.25), Inches(2.20), Inches(4.55), Inches(2.0),
-         NAVY)
-    rect(s, Inches(8.25), Inches(2.20), Inches(0.12), Inches(2.0),
-         COPPER)
-    simple_text(s, Inches(8.50), Inches(2.30), Inches(4.2), Inches(0.3),
-                "OF THE FEDERAL LIMIT",
-                size=11, bold=True, color=COPPER_LIGHT)
-    simple_text(s, Inches(8.50), Inches(2.65), Inches(4.2), Inches(1.1),
-                "1.2%", size=72, bold=True, color=WHITE)
-    simple_text(s, Inches(8.50), Inches(3.75), Inches(4.2), Inches(0.4),
-                "59.12 ÷ 5,000 mrem",
-                size=12, color=RGBColor(0xCF, 0xD8, 0xE3))
-
-    proofs = [
-        ("SCALABLE",
-         "Workforce grew 1,133 → 1,167. "
-         "Dose did not move."),
-        ("CONTAINED",
-         "98% external (shielding). "
-         "2% internal (protocol)."),
-        ("REPLICABLE",
-         "IAEA Milestones — the same path Zambia (RPA → NSPA) is on."),
-    ]
-    py = 4.35
-    for head, body in proofs:
-        rect(s, Inches(8.25), Inches(py), Inches(4.55), Inches(0.74),
-             WHITE)
-        rect(s, Inches(8.25), Inches(py), Inches(0.08), Inches(0.74),
-             COPPER)
-        simple_text(s, Inches(8.45), Inches(py + 0.05), Inches(4.3),
-                    Inches(0.25), head,
-                    size=10, bold=True, color=NAVY)
-        simple_text(s, Inches(8.45), Inches(py + 0.30), Inches(4.3),
-                    Inches(0.42), body,
-                    size=10, color=INK, line_spacing=1.20)
-        py += 0.80
-
-    set_notes(s,
-        "[Safety Mastery] My analysis of the U.S. DOE Radiation "
-        "Exposure Monitoring System shows the average nuclear technician "
-        "absorbs 59.12 mrem per year — that is one point two percent of "
-        "the five thousand mrem federal limit. Less than the dose from "
-        "routine medical imaging. The biggest fear in Zambia about "
-        "nuclear is safety; this data says modern monitoring keeps "
-        "workers safer than most office radiation environments. And "
-        "between 2021 and 2024 the workforce grew while individual dose "
-        "stayed flat. Safety scales. We have the analytical tools — "
-        "this dashboard — to oversee a national programme today.")
-    slide_footer(s, 5, 8,
-                 [CITATIONS["doe"], CITATIONS["iaea"]])
-
-
-# -----------------------------------------------------------------------
-# SLIDE 6 — STRATEGIC RESOURCE: ZAMBIA'S URANIUM
-# -----------------------------------------------------------------------
-def slide_resource(prs):
-    s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
-                 "04  ·  STRATEGIC RESOURCE",
-                 "We are sitting on our own fuel.",
-                 "Zambia exports raw uranium today. "
-                 "It can fuel domestic reactors tomorrow.")
-
-    # LEFT — Deposit cards (visual proxy for a map)
-    rect(s, Inches(0.6), Inches(2.20), Inches(6.5), Inches(4.6),
-         NAVY)
-    rect(s, Inches(0.6), Inches(2.20), Inches(6.5), Inches(0.10),
-         COPPER)
-    simple_text(s, Inches(0.85), Inches(2.40), Inches(6.0), Inches(0.35),
-                "KNOWN URANIUM-BEARING ZONES — ZAMBIA",
-                size=11, bold=True, color=COPPER_LIGHT)
-
-    deposits = [
-        ("LUMWANA / KANYEMBA",
-         "North-Western Province",
-         "Uranium recovered as by-product of copper mining; "
-         "previously stockpiled by Barrick."),
-        ("GWEMBE / SIAVONGA BELT",
-         "Southern Province",
-         "Karoo-type sandstone uranium; site of the 2024 "
-         "Siavonga Baseline Survey."),
-        ("MUTANGA / DIBWE",
-         "Southern Province",
-         "Defined uranium resource under historical "
-         "GoviEx / African Energy permits."),
-    ]
-    py = 2.85
-    for name, region, body in deposits:
-        rect(s, Inches(0.85), Inches(py), Inches(6.0), Inches(1.15),
-             RGBColor(0x12, 0x28, 0x4A))
-        rect(s, Inches(0.85), Inches(py), Inches(0.08), Inches(1.15),
-             COPPER)
-        simple_text(s, Inches(1.05), Inches(py + 0.08), Inches(5.8),
-                    Inches(0.3),
-                    name, size=13, bold=True, color=WHITE)
-        simple_text(s, Inches(1.05), Inches(py + 0.36), Inches(5.8),
-                    Inches(0.3),
-                    region, size=10, italic=True, color=COPPER_LIGHT)
-        simple_text(s, Inches(1.05), Inches(py + 0.62), Inches(5.8),
-                    Inches(0.5),
-                    body, size=11, color=RGBColor(0xCF, 0xD8, 0xE3),
-                    line_spacing=1.3)
-        py += 1.27
-
-    # RIGHT — VALUE-CHAIN PIVOT
-    rect(s, Inches(7.3), Inches(2.20), Inches(5.4), Inches(4.6),
-         WHITE)
-    rect(s, Inches(7.3), Inches(2.20), Inches(0.12), Inches(4.6),
-         COPPER)
-    simple_text(s, Inches(7.55), Inches(2.35), Inches(5.0), Inches(0.35),
-                "THE VALUE-CHAIN PIVOT",
-                size=11, bold=True, color=COPPER)
-
-    pivot = [
-        ("TODAY",
-         "Raw-mineral exporter — uranium leaves Zambia for "
-         "enrichment elsewhere; we capture wellhead value only."),
-        ("WITH NUCLEAR POWER",
-         "High-tech energy producer — domestic fuel flows into "
-         "domestic baseload supporting mines, smelters, hospitals."),
-        ("STRATEGIC UPSIDE",
-         "Import independence; price-stable electricity; "
-         "high-skill jobs anchored to a regulated, exportable "
-         "competency."),
-    ]
-    py = 2.85
-    for head, body in pivot:
-        simple_text(s, Inches(7.55), Inches(py), Inches(5.0),
-                    Inches(0.3),
-                    head, size=11, bold=True, color=NAVY)
-        simple_text(s, Inches(7.55), Inches(py + 0.30), Inches(5.0),
-                    Inches(1.05),
-                    body, size=11, color=INK, line_spacing=1.3)
-        py += 1.30
-
-    set_notes(s,
-        "[Strategic Resource] Zambia has known uranium-bearing zones "
-        "across the North-Western and Southern provinces — Lumwana, "
-        "Gwembe Valley, Mutanga. We currently export uranium as a raw "
-        "mineral. Why? By developing nuclear power we move from "
-        "raw-material exporter to high-tech energy producer. We capture "
-        "the value-chain, we anchor high-skill jobs, and we stop paying "
-        "to import fuel that we are already sending abroad. Why should "
-        "we export our uranium as a raw mineral when we could be using "
-        "it to power our own mines and factories?")
-    slide_footer(s, 6, 8,
-                 [CITATIONS["mines"], CITATIONS["ndp"]])
-
-
-# -----------------------------------------------------------------------
-# SLIDE 7 — ECONOMIC IMPACT (CHART: COPPER GOAL MW REQUIREMENT)
-# -----------------------------------------------------------------------
-def slide_economic(prs):
-    s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, OFFWHITE)
-    slide_header(s,
-                 "05  ·  ECONOMIC IMPACT",
-                 "Powering the 3-million-tonne copper ambition.",
-                 "Zambia's flagship industrial target needs "
-                 "high-density, drought-proof power.")
-
-    # CHART: COLUMN — MW continuous needed at copper output levels
-    chart_data = CategoryChartData()
-    chart_data.categories = [
-        "Current (~0.8 Mt)",
-        "Mid-Path (~1.5 Mt)",
-        "Target (3.0 Mt)",
-    ]
-    chart_data.add_series("MW continuous (mining only)",
-                          (320, 600, 1200))
-    cx, cy, cw, ch = Inches(0.6), Inches(2.20), Inches(7.4), Inches(4.4)
+    chart_data.categories = ["2015/16", "2018/19", "2023/24"]
+    chart_data.add_series("MW lost to drought", (1000, 872, 1430))
+    cx, cy, cw, ch = Inches(0.6), Inches(2.30), Inches(7.4), Inches(4.5)
     chart_shape = s.shapes.add_chart(
         XL_CHART_TYPE.COLUMN_CLUSTERED, cx, cy, cw, ch, chart_data
     )
@@ -705,181 +440,467 @@ def slide_economic(prs):
     plot.has_data_labels = True
     dl = plot.data_labels
     dl.position = XL_LABEL_POSITION.OUTSIDE_END
+    dl.font.size = Pt(13)
+    dl.font.bold = True
+    dl.font.color.rgb = CRISIS_DEEP
+    dl.font.name = BODY_FONT
+    color_points(chart.series[0],
+                 [CRISIS, CRISIS, CRISIS_DEEP])
+    style_chart(chart, label_color=CRISIS_DEEP, axis_color=INK_SOFT)
+
+    t(s, Inches(0.6), Inches(6.85), Inches(7.4), Inches(0.3),
+      "Generation deficit, megawatts (rounded). "
+      "Sources: ZESCO; MoE.",
+      size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
+
+    # RIGHT — three brutal numbers
+    rect(s, Inches(8.25), Inches(2.30), Inches(4.55), Inches(4.5),
+         OFFWHITE)
+    rect(s, Inches(8.25), Inches(2.30), Inches(0.12), Inches(4.5),
+         GREEN_DEEP)
+
+    t(s, Inches(8.50), Inches(2.45), Inches(4.1), Inches(0.3),
+      "WHAT DROUGHT COSTS US",
+      size=10, bold=True, color=COPPER)
+
+    rows = [
+        ("84%",   "of generation",     "from hydropower"),
+        ("21 hrs", "of load-shedding", "per day, late 2024"),
+        ("$440M", "in emergency",       "imports — 2015/16 alone"),
+        ("~2%",   "of GDP lost",        "to 2024 blackouts (IMF)"),
+    ]
+    y = 2.85
+    for big, mid, sm in rows:
+        t(s, Inches(8.50), Inches(y), Inches(4.1), Inches(0.55),
+          big, size=26, bold=True, color=CRISIS_DEEP,
+          font=TITLE_FONT)
+        t(s, Inches(8.50), Inches(y + 0.55), Inches(4.1), Inches(0.32),
+          f"{mid}  {sm}", size=10, color=INK,
+          line_spacing=1.25)
+        line_rule(s, Inches(8.50), Inches(y + 0.92), Inches(3.8),
+                  RULE, 0.5)
+        y += 1.00
+
+    # Kicker
+    t(s, Inches(0.6), Inches(7.18), Inches(7.4), Inches(0.3),
+      "Three droughts in a decade. The trend, not the exception.",
+      size=11, italic=True, bold=True, color=CRISIS_DEEP,
+      align=PP_ALIGN.CENTER)
+
+    footer(s, 4, 8,
+           [CITATIONS["zesco"], CITATIONS["imf"], CITATIONS["ndp"]])
+    notes(s,
+        "[Hostage Math] Eighty-four percent of our electricity comes "
+        "from hydropower. That single point of failure has now cost us "
+        "three major drought events in a decade — each bigger than the "
+        "last. The 2023-24 Kariba crisis triggered up to twenty-one "
+        "hours of load-shedding a day in late 2024, throttling our "
+        "copper mines and, by IMF estimates, evaporating about two "
+        "percent of GDP. We cannot industrialise a country on rainfall. "
+        "Nuclear is not an option here; it is a necessity.")
+
+
+# -----------------------------------------------------------------------
+# SLIDE 5 — SAFETY MASTERY (DOE proof)
+# -----------------------------------------------------------------------
+def slide_safety(prs):
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    set_bg(s, PARCH)
+    header_block(s,
+                 "03  ·  SAFETY MASTERY",
+                 "Nuclear is the safest energy we don't yet use.",
+                 "A decade of U.S. DOE data — the playbook Zambia "
+                 "would inherit.")
+
+    # CHART — horizontal bar exposure comparison
+    chart_data = CategoryChartData()
+    chart_data.categories = [
+        "Avg. Technician (DOE 2024)",
+        "Natural Background",
+        "Federal Occupational Limit",
+    ]
+    chart_data.add_series("mrem / year", (59.12, 300, 5000))
+    cx, cy, cw, ch = Inches(0.6), Inches(2.30), Inches(7.4), Inches(4.45)
+    cs = s.shapes.add_chart(
+        XL_CHART_TYPE.BAR_CLUSTERED, cx, cy, cw, ch, chart_data
+    )
+    chart = cs.chart
+    chart.has_title = False
+    chart.has_legend = False
+    plot = chart.plots[0]
+    plot.has_data_labels = True
+    dl = plot.data_labels
+    dl.position = XL_LABEL_POSITION.OUTSIDE_END
     dl.font.size = Pt(12)
     dl.font.bold = True
-    dl.font.color.rgb = NAVY
-    color_series_points(chart.series[0],
-                        [COPPER, COPPER, CRISIS])
-    style_chart_text(chart, color=INK, size=10)
+    dl.font.color.rgb = GREEN_DEEP
+    dl.font.name = BODY_FONT
+    color_points(chart.series[0],
+                 [GREEN, GOLD, CRISIS])
+    style_chart(chart, label_color=GREEN_DEEP, axis_color=INK_SOFT)
 
-    simple_text(s, Inches(0.6), Inches(6.65), Inches(7.4), Inches(0.4),
-                "Estimated continuous power for copper mining at "
-                "~3,500 kWh/t. Sources: MoMMD; ZESCO.",
-                size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
+    t(s, Inches(0.6), Inches(6.85), Inches(7.4), Inches(0.3),
+      "Annual radiation exposure (mrem). Source: U.S. DOE REMS 2024.",
+      size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
 
-    # RIGHT — IMPLICATIONS
-    rect(s, Inches(8.25), Inches(2.20), Inches(4.55), Inches(4.6),
-         WHITE)
-    rect(s, Inches(8.25), Inches(2.20), Inches(0.12), Inches(4.6),
+    # RIGHT — Hero stat + proofs
+    rect(s, Inches(8.25), Inches(2.30), Inches(4.55), Inches(1.95),
+         GREEN_DEEP)
+    rect(s, Inches(8.25), Inches(2.30), Inches(0.12), Inches(1.95),
          COPPER)
-    simple_text(s, Inches(8.50), Inches(2.35), Inches(4.1), Inches(0.3),
-                "WHAT THIS MEANS",
-                size=11, bold=True, color=COPPER)
+    t(s, Inches(8.50), Inches(2.42), Inches(4.2), Inches(0.3),
+      "OF THE FEDERAL LIMIT",
+      size=10, bold=True, color=GOLD)
+    t(s, Inches(8.50), Inches(2.72), Inches(4.2), Inches(1.0),
+      "1.2%", size=72, bold=True, color=WHITE, font=TITLE_FONT)
+    t(s, Inches(8.50), Inches(3.78), Inches(4.2), Inches(0.3),
+      "59.12 ÷ 5,000 mrem",
+      size=11, color=RGBColor(0xCF, 0xE0, 0xD2))
+
+    proofs = [
+        ("SCALABLE",
+         "Workforce grew 1,133 → 1,167. "
+         "Average dose did not move."),
+        ("CONTAINED",
+         "98% external (shielding). "
+         "2% internal (protocol)."),
+        ("REPLICABLE",
+         "IAEA Milestones — the regulatory path "
+         "Zambia (RPA → NSPA) is already on."),
+    ]
+    y = 4.40
+    for head, body in proofs:
+        rect(s, Inches(8.25), Inches(y), Inches(4.55), Inches(0.74),
+             OFFWHITE)
+        rect(s, Inches(8.25), Inches(y), Inches(0.08), Inches(0.74),
+             COPPER)
+        t(s, Inches(8.45), Inches(y + 0.06), Inches(4.3), Inches(0.25),
+          head, size=10, bold=True, color=GREEN_DEEP)
+        t(s, Inches(8.45), Inches(y + 0.32), Inches(4.3), Inches(0.42),
+          body, size=10, color=INK, line_spacing=1.20)
+        y += 0.80
+
+    footer(s, 5, 8, [CITATIONS["doe"], CITATIONS["iaea"]])
+    notes(s,
+        "[Safety Mastery] Zambians fear nuclear the way most people "
+        "fear flying — disproportionate to the data. My analysis of "
+        "the U.S. Department of Energy REMS dataset shows the average "
+        "nuclear technician absorbs 59.12 mrem per year. That is one "
+        "point two percent of the federal occupational limit and "
+        "roughly one fifth of the natural background dose any of us "
+        "absorb just walking around. The biggest fear in Zambia is "
+        "safety; the data says modern monitoring keeps workers safer "
+        "than most office radiation environments. And the system "
+        "scales — workforce grew while individual dose stayed flat. "
+        "This is the analytical capacity we have already built locally; "
+        "we are ready to oversee a national programme.")
+
+
+# -----------------------------------------------------------------------
+# SLIDE 6 — STRATEGIC RESOURCE
+# -----------------------------------------------------------------------
+def slide_resource(prs):
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    set_bg(s, PARCH)
+    header_block(s,
+                 "04  ·  STRATEGIC RESOURCE",
+                 "We are exporting our future.",
+                 "Zambian uranium fuels other countries' reactors. "
+                 "We import the electricity it makes.")
+
+    # LEFT — Deposit map proxy
+    rect(s, Inches(0.6), Inches(2.30), Inches(6.5), Inches(4.5),
+         GREEN_DEEP)
+    rect(s, Inches(0.6), Inches(2.30), Inches(6.5), Inches(0.10),
+         COPPER)
+    t(s, Inches(0.85), Inches(2.50), Inches(6.0), Inches(0.3),
+      "KNOWN URANIUM-BEARING ZONES  ·  ZAMBIA",
+      size=10, bold=True, color=GOLD)
+
+    deposits = [
+        ("LUMWANA  /  KANYEMBA",
+         "North-Western Province",
+         "Uranium recovered as by-product of copper mining; "
+         "stockpiled historically by Barrick."),
+        ("GWEMBE  /  SIAVONGA BELT",
+         "Southern Province",
+         "Karoo-type sandstone uranium — site of the 2024 "
+         "Siavonga Baseline Survey."),
+        ("MUTANGA  /  DIBWE",
+         "Southern Province",
+         "Defined uranium resource under historical "
+         "GoviEx / African Energy permits."),
+    ]
+    y = 2.92
+    for name, region, body in deposits:
+        rect(s, Inches(0.85), Inches(y), Inches(6.0), Inches(1.10),
+             RGBColor(0x10, 0x36, 0x24))
+        rect(s, Inches(0.85), Inches(y), Inches(0.08), Inches(1.10),
+             COPPER)
+        t(s, Inches(1.05), Inches(y + 0.08), Inches(5.8), Inches(0.3),
+          name, size=13, bold=True, color=WHITE, font=TITLE_FONT)
+        t(s, Inches(1.05), Inches(y + 0.36), Inches(5.8), Inches(0.3),
+          region, size=10, italic=True, color=GOLD)
+        t(s, Inches(1.05), Inches(y + 0.60), Inches(5.8), Inches(0.5),
+          body, size=11, color=RGBColor(0xD5, 0xE0, 0xD5),
+          line_spacing=1.3)
+        y += 1.22
+
+    # RIGHT — value-chain narrative, editorial style
+    t(s, Inches(7.4), Inches(2.45), Inches(5.4), Inches(0.4),
+      "THE  VALUE-CHAIN  PIVOT",
+      size=10, bold=True, color=COPPER)
+    line_rule(s, Inches(7.4), Inches(2.78), Inches(0.6), COPPER, 1.5)
+
+    blocks = [
+        ("TODAY", CRISIS,
+         "Raw-mineral exporter. Uranium leaves Zambia for "
+         "enrichment abroad; we capture wellhead value only."),
+        ("WITH NUCLEAR POWER", GREEN_DEEP,
+         "High-tech energy producer. Domestic fuel feeds domestic "
+         "baseload — mines, smelters, hospitals, factories."),
+        ("STRATEGIC UPSIDE", COPPER,
+         "Import independence. Price-stable electricity. High-skill "
+         "jobs anchored to a regulated, exportable competency."),
+    ]
+    y2 = 3.00
+    for head, col, body in blocks:
+        t(s, Inches(7.4), Inches(y2), Inches(5.4), Inches(0.3),
+          head, size=11, bold=True, color=col)
+        t(s, Inches(7.4), Inches(y2 + 0.30), Inches(5.4), Inches(1.1),
+          body, size=11.5, color=INK, line_spacing=1.32)
+        y2 += 1.30
+
+    footer(s, 6, 8,
+           [CITATIONS["mines"], CITATIONS["wna"], CITATIONS["ndp"]])
+    notes(s,
+        "[Strategic Resource] Zambia exports uranium today. We are a "
+        "raw-mineral economy. Why should we ship the very element that "
+        "could fuel our own copper mines abroad — only to import the "
+        "electricity it produces? Lumwana, Gwembe, Mutanga: known "
+        "uranium-bearing zones. By developing nuclear power we move "
+        "from raw-material exporter to high-tech energy producer; we "
+        "anchor high-skill jobs; we capture the value chain. Why ship "
+        "our uranium when we could use it to power our own factories?")
+
+
+# -----------------------------------------------------------------------
+# SLIDE 7 — ECONOMIC IMPACT (Copper goal + African gap)
+# -----------------------------------------------------------------------
+def slide_economic(prs):
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    set_bg(s, PARCH)
+    header_block(s,
+                 "05  ·  ECONOMIC IMPACT",
+                 "3 million tonnes of copper need a power source. "
+                 "Rain isn't it.",
+                 "Zambia's flagship industrial target needs "
+                 "high-density, weather-proof power — now.")
+
+    # CHART — column: MW continuous at copper output levels
+    chart_data = CategoryChartData()
+    chart_data.categories = [
+        "Today (~0.8 Mt)",
+        "Mid-Path (~1.5 Mt)",
+        "Target (3.0 Mt)",
+    ]
+    chart_data.add_series("MW continuous (mining only)",
+                          (320, 600, 1200))
+    cx, cy, cw, ch = Inches(0.6), Inches(2.30), Inches(7.4), Inches(3.30)
+    cs = s.shapes.add_chart(
+        XL_CHART_TYPE.COLUMN_CLUSTERED, cx, cy, cw, ch, chart_data
+    )
+    chart = cs.chart
+    chart.has_title = False
+    chart.has_legend = False
+    plot = chart.plots[0]
+    plot.has_data_labels = True
+    dl = plot.data_labels
+    dl.position = XL_LABEL_POSITION.OUTSIDE_END
+    dl.font.size = Pt(13)
+    dl.font.bold = True
+    dl.font.color.rgb = GREEN_DEEP
+    dl.font.name = BODY_FONT
+    color_points(chart.series[0],
+                 [GOLD, COPPER, CRISIS])
+    style_chart(chart, label_color=GREEN_DEEP, axis_color=INK_SOFT)
+
+    t(s, Inches(0.6), Inches(5.65), Inches(7.4), Inches(0.3),
+      "Continuous power for copper mining at ~3,500 kWh/t. "
+      "Sources: MoMMD; ZESCO.",
+      size=9, italic=True, color=MUTED, align=PP_ALIGN.CENTER)
+
+    # AFRICAN COMPETITION STRIP (full width below chart)
+    rect(s, Inches(0.6), Inches(6.05), Inches(7.4), Inches(1.05),
+         GREEN_DEEP)
+    rect(s, Inches(0.6), Inches(6.05), Inches(0.10), Inches(1.05),
+         COPPER)
+    t(s, Inches(0.85), Inches(6.15), Inches(7.0), Inches(0.3),
+      "MEANWHILE,  ACROSS  AFRICA",
+      size=10, bold=True, color=GOLD)
+    textbox(
+        s, Inches(0.85), Inches(6.45), Inches(7.0), Inches(0.6),
+        [
+            {"text": "Egypt: ", "size": 11, "bold": True,
+             "color": COPPER_LIGHT},
+            {"text": "4 reactors under construction at El Dabaa.  ",
+             "size": 11, "color": WHITE},
+            {"text": "Kenya: ", "size": 11, "bold": True,
+             "color": COPPER_LIGHT},
+            {"text": "first criticality target 2034.  ",
+             "size": 11, "color": WHITE},
+            {"text": "South Africa: ", "size": 11, "bold": True,
+             "color": COPPER_LIGHT},
+            {"text": "Koeberg, 40+ years.",
+             "size": 11, "color": WHITE},
+        ],
+        line_spacing=1.3,
+    )
+
+    # RIGHT — implications
+    rect(s, Inches(8.25), Inches(2.30), Inches(4.55), Inches(4.8),
+         OFFWHITE)
+    rect(s, Inches(8.25), Inches(2.30), Inches(0.12), Inches(4.8),
+         COPPER)
+    t(s, Inches(8.50), Inches(2.45), Inches(4.1), Inches(0.3),
+      "WHAT THIS MEANS",
+      size=10, bold=True, color=COPPER)
 
     pts = [
         ("MINING INTENSITY",
-         "Deep-level copper requires massive, uninterrupted power "
-         "— hydropower is structurally mismatched."),
+         "Deep-level copper needs ~1,200 MW continuous at full "
+         "3 Mt output — hydropower cannot deliver this reliably."),
         ("COST STABILITY",
-         "Nuclear fuel costs are decade-stable vs. volatile "
-         "diesel imports and emergency electricity buys."),
+         "Nuclear fuel costs are decade-stable. Drought imports cost "
+         "us $0.50+/kWh in emergency buys."),
         ("STRATEGIC FIT",
-         "The 2,000 MW nuclear target maps directly onto the "
-         "3 Mt copper power gap."),
+         "Zambia's 2,000 MW nuclear target maps almost exactly onto "
+         "the 3 Mt copper power gap."),
+        ("THE WINDOW",
+         "Egypt's first reactor enters service ~2026-28. If we wait, "
+         "we buy that power from them."),
     ]
-    py = 2.75
+    y = 2.85
     for head, body in pts:
-        simple_text(s, Inches(8.50), Inches(py), Inches(4.1),
-                    Inches(0.3),
-                    head, size=11, bold=True, color=NAVY)
-        simple_text(s, Inches(8.50), Inches(py + 0.30), Inches(4.1),
-                    Inches(1.0),
-                    body, size=11, color=INK, line_spacing=1.3)
-        py += 1.30
+        t(s, Inches(8.50), Inches(y), Inches(4.1), Inches(0.3),
+          head, size=10, bold=True, color=GREEN_DEEP)
+        t(s, Inches(8.50), Inches(y + 0.28), Inches(4.1), Inches(0.85),
+          body, size=10.5, color=INK, line_spacing=1.30)
+        y += 1.05
 
-    set_notes(s,
+    footer(s, 7, 8,
+           [CITATIONS["mines"], CITATIONS["wna"], CITATIONS["zesco"]])
+    notes(s,
         "[Economic Impact] Zambia has set a public target of three "
-        "million tonnes of copper annually. At industry-standard energy "
-        "intensity that requires roughly twelve hundred megawatts of "
-        "continuous power — for mining alone, before smelting, before "
-        "households, before industrial diversification. Hydropower "
-        "cannot deliver that reliably and drought after drought has "
-        "proved it. Nuclear can. The 2,000 MW nuclear target maps "
-        "almost exactly onto the copper-driven power gap. This is not "
-        "ideology — it is arithmetic.")
-    slide_footer(s, 7, 8,
-                 [CITATIONS["mines"], CITATIONS["zesco"]])
+        "million tonnes of copper annually. At industry-standard "
+        "energy intensity that is roughly twelve hundred megawatts of "
+        "continuous power — for mining alone. Hydropower cannot "
+        "deliver that drought after drought. Nuclear can. And there is "
+        "a window closing: Egypt is building four reactors at El "
+        "Dabaa; Kenya targets first criticality by 2034; South Africa "
+        "has been nuclear for over forty years. If we wait, we end up "
+        "buying drought-proof electricity from neighbours. This is "
+        "not ideology. It is arithmetic.")
 
 
 # -----------------------------------------------------------------------
-# SLIDE 8 — ROADMAP
+# SLIDE 8 — ROADMAP / ASK
 # -----------------------------------------------------------------------
-def slide_roadmap(prs):
+def slide_ask(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    set_bg(s, NAVY_DEEP)
+    set_bg(s, GREEN_DEEP)
 
     rect(s, Inches(0), Inches(0), Inches(13.333), Inches(0.10), COPPER)
+    rect(s, Inches(0), Inches(0.10), Inches(13.333), Inches(0.04), GOLD)
 
-    simple_text(s, Inches(0.6), Inches(0.50), Inches(10), Inches(0.3),
-                "06  ·  THE ROADMAP",
-                size=11, bold=True, color=COPPER_LIGHT)
-    simple_text(s, Inches(0.6), Inches(0.80), Inches(12.1), Inches(0.7),
-                "From policy approval to first SMR — one decade.",
-                size=28, bold=True, color=WHITE)
-    line_rule(s, Inches(0.6), Inches(1.55), Inches(1.2), COPPER, 1.5)
-    simple_text(s, Inches(0.6), Inches(1.65), Inches(12.1), Inches(0.4),
-                "Three workstreams. Visible milestones. "
-                "Accountability windows.",
-                size=13, italic=True,
-                color=RGBColor(0xCF, 0xD8, 0xE3))
+    t(s, Inches(0.6), Inches(0.50), Inches(10), Inches(0.3),
+      "06  ·  THE ASK",
+      size=11, bold=True, color=GOLD)
+    t(s, Inches(0.6), Inches(0.80), Inches(12.1), Inches(0.9),
+      "Three decisions. One generation.",
+      size=36, bold=True, color=WHITE, font=TITLE_FONT)
+    line_rule(s, Inches(0.6), Inches(1.70), Inches(0.8), COPPER, 2.0)
+    t(s, Inches(0.6), Inches(1.85), Inches(12.1), Inches(0.4),
+      "From radiological fear to industrial mastery — "
+      "the choice is legislative, not technical.",
+      size=13, italic=True,
+      color=RGBColor(0xCF, 0xE0, 0xD2))
 
-    # TIMELINE GRID
-    grid_left = 1.4
-    grid_right = 12.7
-    grid_y = 2.4
-    grid_w = grid_right - grid_left
-
-    # year labels
-    years = ["2026", "2028", "2030", "2032", "2034", "2036+"]
-    step = grid_w / (len(years) - 1)
-    for i, y in enumerate(years):
-        x = grid_left + i * step
-        simple_text(s, Inches(x - 0.3), Inches(grid_y - 0.05),
-                    Inches(0.6), Inches(0.3),
-                    y, size=10, bold=True, color=COPPER_LIGHT,
-                    align=PP_ALIGN.CENTER)
-
-    line_rule(s, Inches(grid_left), Inches(grid_y + 0.35),
-              Inches(grid_w), RGBColor(0x33, 0x44, 0x66), 0.75)
-
-    # Three workstream rows: (label, start_year_index, span_years_in_steps, color)
-    # year span: 2026 = idx 0, each step = 2 years
-    rows = [
-        ("POLICY  &  REGULATION",
-         "Enact Nuclear Bill · Formalise NSPA · Site licensing",
-         0.0, 2.0, COPPER),
-        ("HUMAN  CAPITAL",
-         "Medical Physics · Nuclear Eng. · Data Analytics cohorts",
-         0.5, 4.0, COPPER_LIGHT),
-        ("SMR  IMPLEMENTATION",
-         "Partner selection (ROSATOM / NuScale / Westinghouse) · "
-         "Pre-feas · EPC · First criticality",
-         2.0, 3.0, CRISIS),
+    actions = [
+        ("01", "ENACT",
+         "Pass the Nuclear Bill — empower NSPA as an IAEA-aligned "
+         "independent regulator. Without this signature, every other "
+         "step is symbolic."),
+        ("02", "EQUIP",
+         "Fund radiological monitoring nationwide — starting in "
+         "Siavonga. No Zambian community should live next to "
+         "uranium without instruments."),
+        ("03", "EXECUTE",
+         "Greenlight CNST and SMR pre-feasibility — partner with "
+         "ROSATOM, NuScale, or Westinghouse using the agreements "
+         "Cabinet already approved in 2020."),
     ]
-    row_y = grid_y + 0.65
-    row_h = 1.10
-    for i, (label, body, start, span, col) in enumerate(rows):
-        top = row_y + i * row_h
+    ay = 2.65
+    ah = 1.20
+    gap = 0.10
+    for i, (num, label, body) in enumerate(actions):
+        top = ay + i * (ah + gap)
+        # Number block
+        rect(s, Inches(0.6), Inches(top), Inches(1.15), Inches(ah),
+             COPPER)
+        t(s, Inches(0.6), Inches(top + 0.30), Inches(1.15),
+          Inches(0.7),
+          num, size=36, bold=True, color=GREEN_DEEP,
+          font=TITLE_FONT, align=PP_ALIGN.CENTER)
+        # Content block
+        rect(s, Inches(1.75), Inches(top), Inches(11.0), Inches(ah),
+             RGBColor(0x0C, 0x30, 0x1F))
+        rect(s, Inches(1.75), Inches(top), Inches(11.0), Inches(0.04),
+             GOLD)
+        t(s, Inches(2.0), Inches(top + 0.12), Inches(10.5),
+          Inches(0.35),
+          label, size=18, bold=True, color=GOLD,
+          font=TITLE_FONT)
+        t(s, Inches(2.0), Inches(top + 0.50), Inches(10.5),
+          Inches(0.65),
+          body, size=12, color=WHITE, line_spacing=1.30)
 
-        # bar
-        bar_left = grid_left + start * step
-        bar_w = span * step
-        rect(s, Inches(bar_left), Inches(top + 0.30),
-             Inches(bar_w), Inches(0.45), col)
-        rect(s, Inches(bar_left), Inches(top + 0.30),
-             Inches(0.08), Inches(0.45),
-             WHITE)
-
-        # label inside bar (only if bar wide enough — left aligned text overlay)
-        simple_text(s, Inches(bar_left + 0.12),
-                    Inches(top + 0.32), Inches(bar_w - 0.15),
-                    Inches(0.4),
-                    label, size=11, bold=True, color=NAVY_DEEP)
-
-        # description below bar
-        simple_text(s, Inches(grid_left), Inches(top + 0.80),
-                    Inches(grid_w), Inches(0.30),
-                    body, size=10,
-                    color=RGBColor(0xCF, 0xD8, 0xE3))
-
-    # CLOSING ASK
-    rect(s, Inches(0.6), Inches(6.55), Inches(12.1), Inches(0.55),
-         RGBColor(0x12, 0x28, 0x4A))
-    rect(s, Inches(0.6), Inches(6.55), Inches(0.10), Inches(0.55),
-         COPPER)
+    # Closing line
+    line_rule(s, Inches(0.6), Inches(6.65), Inches(12.1),
+              RGBColor(0x33, 0x55, 0x42), 0.5)
     textbox(
-        s, Inches(0.85), Inches(6.62), Inches(11.7), Inches(0.45),
+        s, Inches(0.6), Inches(6.75), Inches(12.1), Inches(0.45),
         [
-            {"text": "We have the minerals. We have the regulator. "
-             "We have the data capacity. ",
-             "size": 13, "color": WHITE},
-            {"text": "Zambia is ready to start the nuclear conversation.",
-             "size": 13, "bold": True, "color": COPPER_LIGHT},
+            {"text": "The fuel is under our feet. ",
+             "size": 14, "color": WHITE, "font": TITLE_FONT,
+             "italic": True},
+            {"text": "The expertise is on our payroll. ",
+             "size": 14, "color": WHITE, "font": TITLE_FONT,
+             "italic": True},
+            {"text": "Sign the bill.",
+             "size": 16, "bold": True, "color": GOLD,
+             "font": TITLE_FONT},
         ],
-        align=PP_ALIGN.LEFT,
+        align=PP_ALIGN.CENTER,
     )
+    t(s, Inches(0.6), Inches(7.20), Inches(12.1), Inches(0.25),
+      "8 / 8   ·   E. MWABA   ·   SOURCES: "
+      "DOE REMS 2024 · IAEA Milestones · 7NDP & Vision 2030 · "
+      "ZESCO · MoMMD · Siavonga 2024 · IMF · WNA",
+      size=8, italic=True,
+      color=RGBColor(0x8B, 0x97, 0x90),
+      align=PP_ALIGN.CENTER)
 
-    simple_text(s, Inches(0.6), Inches(7.20), Inches(12.1), Inches(0.25),
-                "8 / 8   ·   E. Mwaba   ·   Sources: "
-                "DOE REMS 2024 · IAEA Milestones · 7NDP & Vision 2030 · "
-                "ZESCO 2023-24 · MoMMD · Siavonga Baseline 2024",
-                size=8, italic=True,
-                color=RGBColor(0x8B, 0x97, 0xA8),
-                align=PP_ALIGN.CENTER)
-
-    set_notes(s,
-        "[Roadmap] Three workstreams run in parallel. Policy and "
-        "regulation lands first: pass the Nuclear Bill in 2026, "
-        "formalise NSPA, begin site licensing. Human capital builds "
-        "alongside: Medical Physics and Nuclear Engineering cohorts "
-        "leveraging local universities, plus data-analytics talent — "
-        "the same skill set that built this dashboard. SMR "
-        "implementation begins around 2028 with partner selection "
-        "drawing on the ROSATOM, IP3 / NuScale, and Westinghouse "
-        "relationships already in motion, targeting first criticality "
-        "before 2036. We have the minerals, we have the regulatory "
-        "framework, and as I've shown today, we have the data capacity. "
-        "Zambia is ready to start the nuclear conversation.")
+    notes(s,
+        "[The Ask] Three decisions. ENACT: pass the Nuclear Bill, "
+        "formalise NSPA as IAEA-aligned regulator. EQUIP: fund "
+        "radiological monitoring nationwide, starting with the very "
+        "communities in Siavonga that prompted the 2024 Baseline "
+        "Survey. EXECUTE: greenlight the Centre for Nuclear Science "
+        "and Technology and SMR pre-feasibility using ROSATOM, IP3, "
+        "KAERI agreements already on file. The fuel is under our "
+        "feet. The expertise is on our payroll. The bill is on the "
+        "table. Sign it. Thank you.")
 
 
 def build():
@@ -887,14 +908,14 @@ def build():
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
 
-    slide_title(prs)
+    slide_cover(prs)
     slide_story(prs)
     slide_hook(prs)
-    slide_vision(prs)
+    slide_hostage(prs)
     slide_safety(prs)
     slide_resource(prs)
     slide_economic(prs)
-    slide_roadmap(prs)
+    slide_ask(prs)
 
     prs.save(OUTPUT)
     print(f"Generated: {OUTPUT}")
