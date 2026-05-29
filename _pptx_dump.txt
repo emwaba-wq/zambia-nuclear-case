@@ -1,0 +1,410 @@
+# Slide size: 10.0 x 5.625 in
+# Total slides: 10
+
+=== SLIDE 1 ===
+  bg.type=SOLID (1) rgb=0B1D2E
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=0.12 H=5.625  FILL=D4A017
+  [AUTO_SHAPE (1)] L=5.5 T=-1.5 W=6.5 H=6.5  FILL=1A3A5C
+  [PICTURE (13)] L=7.8 T=1.0 W=1.6 H=1.6
+  [AUTO_SHAPE (1)] L=0.35 T=0.9 W=7.0 H=0.4  TXT='NATIONAL ENERGY STRATEGY'
+      run: 'NATIONAL ENERGY STRATEGY' name=None size=139700 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=0.35 T=1.4 W=8.5 H=2.0  TXT='Zambia Needs | Nuclear Power.'
+      run: 'Zambia Needs' name=Georgia size=558800 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=3.55 W=6.8 H=0.8  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.5 T=3.6 W=6.5 H=0.7  TXT='The Big Idea: Zambia's chronic power deficit is strangling economic growth — nuclear power is the reliable, scalable, low-carbon solution that hydro and solar a'
+      run: 'The Big Idea: Zambia's chronic power deficit is strangling e' name=None size=146050 bold=None italic=True color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=4.95 W=9.0 H=0.35  TXT='A Case Built on Evidence · Economics · Science · Policy'
+      run: 'A Case Built on Evidence · Economics · Science · Policy' name=None size=127000 bold=None italic=None color=8BA3B8
+
+=== SLIDE 2 ===
+  bg.type=SOLID (1) rgb=F0F4F8
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=1A3A5C
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='ACT I — THE PROBLEM'
+      run: 'ACT I — THE PROBLEM' name=None size=120650 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='Zambia Is Running on Empty'
+      run: 'Zambia Is Running on Empty' name=Georgia size=355600 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.3 T=1.3 W=3.05 H=3.2  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=0.3 T=1.3 W=3.05 H=0.12  FILL=C0392B
+  [PICTURE (13)] L=1.45 T=1.55 W=0.7 H=0.7
+  [AUTO_SHAPE (1)] L=0.4 T=2.35 W=2.85 H=0.75  TXT='8–16 hrs'
+      run: '8–16 hrs' name=Georgia size=431800 bold=True italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=0.4 T=3.1 W=2.85 H=0.45  TXT='Daily Load-Shedding'
+      run: 'Daily Load-Shedding' name=None size=165100 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.4 T=3.55 W=2.85 H=0.6  TXT='Households & industry cut off daily'
+      run: 'Households & industry cut off daily' name=None size=133350 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=3.55 T=1.3 W=3.05 H=3.2  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=3.55 T=1.3 W=3.05 H=0.12  FILL=E67E22
+  [PICTURE (13)] L=4.7 T=1.55 W=0.7 H=0.7
+  [AUTO_SHAPE (1)] L=3.65 T=2.35 W=2.85 H=0.75  TXT='43%'
+      run: '43%' name=Georgia size=431800 bold=True italic=None color=E67E22
+  [AUTO_SHAPE (1)] L=3.65 T=3.1 W=2.85 H=0.45  TXT='Electricity Access Rate'
+      run: 'Electricity Access Rate' name=None size=165100 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=3.65 T=3.55 W=2.85 H=0.6  TXT='Among the lowest in Southern Africa'
+      run: 'Among the lowest in Southern Africa' name=None size=133350 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=6.8 T=1.3 W=3.05 H=3.2  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=6.8 T=1.3 W=3.05 H=0.12  FILL=0D7377
+  [PICTURE (13)] L=7.95 T=1.55 W=0.7 H=0.7
+  [AUTO_SHAPE (1)] L=6.9 T=2.35 W=2.85 H=0.75  TXT='7%'
+      run: '7%' name=Georgia size=431800 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=6.9 T=3.1 W=2.85 H=0.45  TXT='GDP Growth Target'
+      run: 'GDP Growth Target' name=None size=165100 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=6.9 T=3.55 W=2.85 H=0.6  TXT='Impossible without reliable power'
+      run: 'Impossible without reliable power' name=None size=133350 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=0.3 T=4.65 W=9.4 H=0.65  FILL=0B1D2E
+  [AUTO_SHAPE (1)] L=0.5 T=4.72 W=9.0 H=0.5  TXT='Over 99% of Zambia's generation capacity is hydropower — and climate change is drying up the Kariba Dam year after year.'
+      run: 'Over 99% of Zambia's generation capacity is hydropower — and' name=None size=152400 bold=None italic=None color=FFFFFF
+
+=== SLIDE 3 ===
+  bg.type=SOLID (1) rgb=FFFFFF
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='WHY ALTERNATIVES FALL SHORT'
+      run: 'WHY ALTERNATIVES FALL SHORT' name=None size=120650 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='The Alternatives: Necessary but Not Sufficient'
+      run: 'The Alternatives: Necessary but Not Sufficient' name=Georgia size=330200 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.2 T=1.25 W=2.35 H=4.0  FILL=F0F4F8
+  [PICTURE (13)] L=1.07 T=1.35 W=0.6 H=0.6
+  [AUTO_SHAPE (1)] L=0.3 T=2.0 W=2.15 H=0.45  TXT='Hydro'
+      run: 'Hydro' name=Georgia size=203200 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.3 T=2.5 W=2.15 H=0.3  TXT='✓ Strengths'
+      run: '✓ Strengths' name=None size=120650 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.35 T=2.82 W=2.05 H=0.35  TXT='Already installed (2,800 MW)'
+      run: 'Already installed (2,800 MW)' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.35 T=3.2 W=2.05 H=0.35  TXT='Low operating cost'
+      run: 'Low operating cost' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.3 T=3.62 W=2.15 H=0.3  TXT='✗ Limitations'
+      run: '✗ Limitations' name=None size=120650 bold=True italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=0.35 T=3.95 W=2.05 H=0.3  TXT='Drought-dependent: Kariba at 12% capacity (2024)'
+      run: 'Drought-dependent: Kariba at 12% capacity (2024)' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=0.35 T=4.27 W=2.05 H=0.3  TXT='Near maximum expansion potential'
+      run: 'Near maximum expansion potential' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=0.35 T=4.59 W=2.05 H=0.3  TXT='Climate risk worsening'
+      run: 'Climate risk worsening' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=2.65 T=1.25 W=2.35 H=4.0  FILL=F0F4F8
+  [PICTURE (13)] L=3.52 T=1.35 W=0.6 H=0.6
+  [AUTO_SHAPE (1)] L=2.75 T=2.0 W=2.15 H=0.45  TXT='Solar'
+      run: 'Solar' name=Georgia size=203200 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=2.75 T=2.5 W=2.15 H=0.3  TXT='✓ Strengths'
+      run: '✓ Strengths' name=None size=120650 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=2.8 T=2.82 W=2.05 H=0.35  TXT='High resource potential'
+      run: 'High resource potential' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=2.8 T=3.2 W=2.05 H=0.35  TXT='Falling panel costs'
+      run: 'Falling panel costs' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=2.75 T=3.62 W=2.15 H=0.3  TXT='✗ Limitations'
+      run: '✗ Limitations' name=None size=120650 bold=True italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=2.8 T=3.95 W=2.05 H=0.3  TXT='Intermittent — no sun at night'
+      run: 'Intermittent — no sun at night' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=2.8 T=4.27 W=2.05 H=0.3  TXT='Requires expensive storage at scale'
+      run: 'Requires expensive storage at scale' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=2.8 T=4.59 W=2.05 H=0.3  TXT='Cannot meet industrial baseload'
+      run: 'Cannot meet industrial baseload' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=5.1 T=1.25 W=2.35 H=4.0  FILL=F0F4F8
+  [PICTURE (13)] L=5.97 T=1.35 W=0.6 H=0.6
+  [AUTO_SHAPE (1)] L=5.2 T=2.0 W=2.15 H=0.45  TXT='Coal / Gas'
+      run: 'Coal / Gas' name=Georgia size=203200 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.2 T=2.5 W=2.15 H=0.3  TXT='✓ Strengths'
+      run: '✓ Strengths' name=None size=120650 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=5.25 T=2.82 W=2.05 H=0.35  TXT='Reliable baseload'
+      run: 'Reliable baseload' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.25 T=3.2 W=2.05 H=0.35  TXT='Short build time'
+      run: 'Short build time' name=None size=114300 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.2 T=3.62 W=2.15 H=0.3  TXT='✗ Limitations'
+      run: '✗ Limitations' name=None size=120650 bold=True italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=5.25 T=3.95 W=2.05 H=0.3  TXT='High CO₂ emissions'
+      run: 'High CO₂ emissions' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=5.25 T=4.27 W=2.05 H=0.3  TXT='Climate financing blocked'
+      run: 'Climate financing blocked' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=5.25 T=4.59 W=2.05 H=0.3  TXT='Fuel import dependency'
+      run: 'Fuel import dependency' name=None size=107950 bold=None italic=None color=666666
+  [AUTO_SHAPE (1)] L=7.55 T=1.25 W=2.35 H=4.0  FILL=0D7377
+  [PICTURE (13)] L=8.42 T=1.35 W=0.6 H=0.6
+  [AUTO_SHAPE (1)] L=7.65 T=2.0 W=2.15 H=0.45  TXT='Nuclear'
+      run: 'Nuclear' name=Georgia size=203200 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=7.65 T=2.5 W=2.15 H=0.3  TXT='✓ Strengths'
+      run: '✓ Strengths' name=None size=120650 bold=True italic=None color=A8F0E8
+  [AUTO_SHAPE (1)] L=7.7 T=2.82 W=2.05 H=0.35  TXT='24/7 baseload — weather-independent'
+      run: '24/7 baseload — weather-independent' name=None size=114300 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=7.7 T=3.2 W=2.05 H=0.35  TXT='Lowest lifecycle carbon (12g CO₂/kWh)'
+      run: 'Lowest lifecycle carbon (12g CO₂/kWh)' name=None size=114300 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=7.7 T=3.58 W=2.05 H=0.35  TXT='Smallest land footprint per kWh'
+      run: 'Smallest land footprint per kWh' name=None size=114300 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=7.65 T=3.62 W=2.15 H=0.3  TXT='✗ Limitations'
+      run: '✗ Limitations' name=None size=120650 bold=True italic=None color=FFB3B3
+  [AUTO_SHAPE (1)] L=7.7 T=3.95 W=2.05 H=0.3  TXT='High upfront capital'
+      run: 'High upfront capital' name=None size=107950 bold=None italic=None color=FFE0E0
+  [AUTO_SHAPE (1)] L=7.7 T=4.27 W=2.05 H=0.3  TXT='Long build time (10–15 yrs)'
+      run: 'Long build time (10–15 yrs)' name=None size=107950 bold=None italic=None color=FFE0E0
+  [AUTO_SHAPE (1)] L=7.7 T=4.59 W=2.05 H=0.3  TXT='Requires regulatory capacity'
+      run: 'Requires regulatory capacity' name=None size=107950 bold=None italic=None color=FFE0E0
+
+=== SLIDE 4 ===
+  bg.type=SOLID (1) rgb=0B1D2E
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=D4A017
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='ACT II — THE ECONOMICS'
+      run: 'ACT II — THE ECONOMICS' name=None size=120650 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='The Cost of Doing Nothing Is Greater'
+      run: 'The Cost of Doing Nothing Is Greater' name=Georgia size=355600 bold=True italic=None color=0B1D2E
+  [CHART (3)] L=0.3 T=1.25 W=5.5 H=3.5
+  [AUTO_SHAPE (1)] L=6.1 T=1.25 W=3.65 H=1.0  FILL=1A3A5C
+  [PICTURE (13)] L=6.2 T=1.5 W=0.45 H=0.45
+  [AUTO_SHAPE (1)] L=6.75 T=1.33 W=2.9 H=0.35  TXT='$2B+ annual GDP loss'
+      run: '$2B+ annual GDP loss' name=None size=152400 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=6.75 T=1.71 W=2.9 H=0.5  TXT='from load-shedding — Zambia's economy loses more every year than a nuclear plant costs to operate.'
+      run: 'from load-shedding — Zambia's economy loses more every year ' name=None size=120650 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=6.1 T=2.4 W=3.65 H=1.0  FILL=1A3A5C
+  [PICTURE (13)] L=6.2 T=2.65 W=0.45 H=0.45
+  [AUTO_SHAPE (1)] L=6.75 T=2.48 W=2.9 H=0.35  TXT='Green financing unlocked'
+      run: 'Green financing unlocked' name=None size=152400 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.75 T=2.86 W=2.9 H=0.5  TXT='Nuclear qualifies for climate financing, SDG bonds & development bank funding unavailable for coal.'
+      run: 'Nuclear qualifies for climate financing, SDG bonds & develop' name=None size=120650 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=6.1 T=3.55 W=3.65 H=1.0  FILL=1A3A5C
+  [PICTURE (13)] L=6.2 T=3.8 W=0.45 H=0.45
+  [AUTO_SHAPE (1)] L=6.75 T=3.63 W=2.9 H=0.35  TXT='50–60 year asset life'
+      run: '50–60 year asset life' name=None size=152400 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=6.75 T=4.01 W=2.9 H=0.5  TXT='Once built, nuclear provides generations of cheap, stable baseload power at $20–30/MWh operational cost.'
+      run: 'Once built, nuclear provides generations of cheap, stable ba' name=None size=120650 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=0.0 T=4.95 W=10.0 H=0.65  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.3 T=5.02 W=9.4 H=0.52  TXT='Morocco, Egypt, South Africa & Ghana are all actively pursuing nuclear — Zambia risks being left behind in the energy transition.'
+      run: 'Morocco, Egypt, South Africa & Ghana are all actively pursui' name=None size=146050 bold=None italic=None color=FFFFFF
+
+=== SLIDE 5 ===
+  bg.type=SOLID (1) rgb=F0F4F8
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=1A3A5C
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='SAFETY & CAPABILITY'
+      run: 'SAFETY & CAPABILITY' name=None size=120650 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='Is Zambia Ready? Yes — With the Right Foundation.'
+      run: 'Is Zambia Ready? Yes — With the Right Foundation.' name=Georgia size=330200 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.3 T=1.25 W=4.35 H=4.0  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=0.5 T=1.35 W=3.95 H=0.45  TXT='Zambia's Existing Foundations'
+      run: 'Zambia's Existing Foundations' name=None size=177800 bold=True italic=None color=1A3A5C
+  [PICTURE (13)] L=0.5 T=1.95 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=1.9 W=3.6 H=0.42  TXT='IAEA member state since 1965'
+      run: 'IAEA member state since 1965' name=None size=139700 bold=None italic=None color=0B1D2E
+  [PICTURE (13)] L=0.5 T=2.39 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=2.34 W=3.6 H=0.42  TXT='Zambia Centre for Energy Research (ZCER) operational'
+      run: 'Zambia Centre for Energy Research (ZCER) operational' name=None size=139700 bold=None italic=None color=0B1D2E
+  [PICTURE (13)] L=0.5 T=2.83 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=2.78 W=3.6 H=0.42  TXT='Uranium deposits — Zambia has the raw material'
+      run: 'Uranium deposits — Zambia has the raw material' name=None size=139700 bold=None italic=None color=0B1D2E
+  [PICTURE (13)] L=0.5 T=3.27 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=3.22 W=3.6 H=0.42  TXT='Active nuclear medicine programme (ZMC)'
+      run: 'Active nuclear medicine programme (ZMC)' name=None size=139700 bold=None italic=None color=0B1D2E
+  [PICTURE (13)] L=0.5 T=3.71 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=3.66 W=3.6 H=0.42  TXT='Bilateral agreements with Russia (Rosatom) & China'
+      run: 'Bilateral agreements with Russia (Rosatom) & China' name=None size=139700 bold=None italic=None color=0B1D2E
+  [PICTURE (13)] L=0.5 T=4.15 W=0.3 H=0.3
+  [AUTO_SHAPE (1)] L=0.9 T=4.1 W=3.6 H=0.42  TXT='Engineers trained at SA NNR and regional programs'
+      run: 'Engineers trained at SA NNR and regional programs' name=None size=139700 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.0 T=1.25 W=4.65 H=4.0  FILL=0D7377
+  [AUTO_SHAPE (1)] L=5.2 T=1.35 W=4.25 H=0.65  TXT='Small Modular Reactors (SMRs): The Right-Size Solution'
+      run: 'Small Modular Reactors (SMRs): The Right-Size Solution' name=None size=177800 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=5.2 T=2.1 W=4.25 H=0.65  TXT='Zambia doesn't need a 1,000 MW Chernobyl-era reactor. Modern SMRs are purpose-built for developing nations:'
+      run: 'Zambia doesn't need a 1,000 MW Chernobyl-era reactor. Modern' name=None size=133350 bold=None italic=None color=C8E8E4
+  [AUTO_SHAPE (1)] L=5.2 T=2.85 W=4.2 H=0.42  TXT='→  50–300 MW output — scalable to Zambia's grid'
+      run: '→  50–300 MW output — scalable to Zambia's grid' name=None size=133350 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=5.2 T=3.29 W=4.2 H=0.42  TXT='→  Factory-built, modular — lower build risk'
+      run: '→  Factory-built, modular — lower build risk' name=None size=133350 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=5.2 T=3.73 W=4.2 H=0.42  TXT='→  Passive safety systems — no meltdown without power'
+      run: '→  Passive safety systems — no meltdown without power' name=None size=133350 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=5.2 T=4.17 W=4.2 H=0.42  TXT='→  Generation IV designs produce 80% less waste'
+      run: '→  Generation IV designs produce 80% less waste' name=None size=133350 bold=None italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=5.2 T=4.61 W=4.2 H=0.42  TXT='→  Countries like Jordan, Ghana, and Kenya are already in advanced planning stages'
+      run: '→  Countries like Jordan, Ghana, and Kenya are already in ad' name=None size=133350 bold=None italic=None color=FFFFFF
+
+=== SLIDE 6 ===
+  bg.type=SOLID (1) rgb=FFFFFF
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=C0392B
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='HONEST CHALLENGES — AND SOLUTIONS'
+      run: 'HONEST CHALLENGES — AND SOLUTIONS' name=None size=120650 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='The Risks Are Real — and Manageable'
+      run: 'The Risks Are Real — and Manageable' name=Georgia size=355600 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.25 T=1.25 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=0.25 T=1.25 W=0.1 H=1.3  FILL=C0392B
+  [PICTURE (13)] L=0.45 T=1.75 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=0.9 T=1.33 W=3.8 H=0.32  TXT='High Capital Cost'
+      run: 'High Capital Cost' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.9 T=1.67 W=3.8 H=0.38  TXT='⚠  A 300 MW SMR costs $1–2B upfront — significant for Zambia's budget.'
+      run: '⚠  A 300 MW SMR costs $1–2B upfront — significant for Zambia' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=0.9 T=2.07 W=3.8 H=0.38  TXT='✓  Phased financing via World Bank, AIIB, AfDB, and bilateral loans (Russia, China, UAE). Public-private partnerships spread the risk.'
+      run: '✓  Phased financing via World Bank, AIIB, AfDB, and bilatera' name=None size=114300 bold=None italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.25 T=2.67 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=0.25 T=2.67 W=0.1 H=1.3  FILL=E67E22
+  [PICTURE (13)] L=0.45 T=3.17 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=0.9 T=2.75 W=3.8 H=0.32  TXT='Skills Shortage'
+      run: 'Skills Shortage' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.9 T=3.09 W=3.8 H=0.38  TXT='⚠  Nuclear engineering requires specialist expertise Zambia currently lacks at scale.'
+      run: '⚠  Nuclear engineering requires specialist expertise Zambia ' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=0.9 T=3.49 W=3.8 H=0.38  TXT='✓  Begin NOW: scholarship programs, partner with IAEA's nuclear training centres, UNZA nuclear curriculum. Build the pipeline over 10 years.'
+      run: '✓  Begin NOW: scholarship programs, partner with IAEA's nucl' name=None size=114300 bold=None italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.25 T=4.09 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=0.25 T=4.09 W=0.1 H=1.3  FILL=1A3A5C
+  [PICTURE (13)] L=0.45 T=4.59 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=0.9 T=4.17 W=3.8 H=0.32  TXT='Waste Management'
+      run: 'Waste Management' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.9 T=4.51 W=3.8 H=0.38  TXT='⚠  Radioactive waste must be stored safely for centuries.'
+      run: '⚠  Radioactive waste must be stored safely for centuries.' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=0.9 T=4.91 W=3.8 H=0.38  TXT='✓  SMRs produce far less waste. Dry cask storage is proven. IAEA provides full technical guidance. Zambia has suitable geological sites.'
+      run: '✓  SMRs produce far less waste. Dry cask storage is proven. ' name=None size=114300 bold=None italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=5.1 T=1.25 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=5.1 T=1.25 W=0.1 H=1.3  FILL=D4A017
+  [PICTURE (13)] L=5.3 T=1.75 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=5.75 T=1.33 W=3.8 H=0.32  TXT='Safety & Public Perception'
+      run: 'Safety & Public Perception' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.75 T=1.67 W=3.8 H=0.38  TXT='⚠  Public fear (Chernobyl, Fukushima) and political opposition are real barriers.'
+      run: '⚠  Public fear (Chernobyl, Fukushima) and political oppositi' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=5.75 T=2.07 W=3.8 H=0.38  TXT='✓  Independent regulator (like SA's NNR), full transparency, and data: nuclear is statistically safer per kWh than coal, gas, or even rooftop solar.'
+      run: '✓  Independent regulator (like SA's NNR), full transparency,' name=None size=114300 bold=None italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=5.1 T=2.67 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=5.1 T=2.67 W=0.1 H=1.3  FILL=0D7377
+  [PICTURE (13)] L=5.3 T=3.17 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=5.75 T=2.75 W=3.8 H=0.32  TXT='Long Build Timeline'
+      run: 'Long Build Timeline' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.75 T=3.09 W=3.8 H=0.38  TXT='⚠  10–15 years from decision to first power — a long time to wait.'
+      run: '⚠  10–15 years from decision to first power — a long time to' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=5.75 T=3.49 W=3.8 H=0.38  TXT='✓  Start today. The grid won't fix itself. Every year of delay is another decade of load-shedding. Parallel solar/wind investments fill the gap.'
+      run: '✓  Start today. The grid won't fix itself. Every year of del' name=None size=114300 bold=None italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=5.1 T=4.09 W=4.6 H=1.3  FILL=F0F4F8
+  [AUTO_SHAPE (1)] L=5.1 T=4.09 W=0.1 H=1.3  FILL=14A085
+  [PICTURE (13)] L=5.3 T=4.59 W=0.35 H=0.35
+  [AUTO_SHAPE (1)] L=5.75 T=4.17 W=3.8 H=0.32  TXT='Regulatory Gaps'
+      run: 'Regulatory Gaps' name=None size=158750 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=5.75 T=4.51 W=3.8 H=0.38  TXT='⚠  Zambia lacks a standalone nuclear regulatory authority.'
+      run: '⚠  Zambia lacks a standalone nuclear regulatory authority.' name=None size=114300 bold=None italic=None color=C0392B
+  [AUTO_SHAPE (1)] L=5.75 T=4.91 W=3.8 H=0.38  TXT='✓  Establish the Zambia Nuclear Regulatory Authority (ZaNRA) now. Model on Kenya's KNEB or SA's NNR. IAEA will assist.'
+      run: '✓  Establish the Zambia Nuclear Regulatory Authority (ZaNRA)' name=None size=114300 bold=None italic=None color=0D7377
+
+=== SLIDE 7 ===
+  bg.type=SOLID (1) rgb=1A3A5C
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='ACT II — NATIONAL DEVELOPMENT'
+      run: 'ACT II — NATIONAL DEVELOPMENT' name=None size=120650 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='Nuclear Powers More Than the Grid'
+      run: 'Nuclear Powers More Than the Grid' name=Georgia size=355600 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.25 T=1.3 W=4.55 H=1.75  FILL=142C45
+  [AUTO_SHAPE (1)] L=0.25 T=1.3 W=4.55 H=0.1  FILL=14A085
+  [PICTURE (13)] L=0.45 T=1.6 W=0.5 H=0.5
+  [AUTO_SHAPE (1)] L=1.1 T=1.48 W=3.55 H=0.4  TXT='Vision 2030 & 8NDP'
+      run: 'Vision 2030 & 8NDP' name=None size=165100 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=1.1 T=1.92 W=3.55 H=1.0  TXT='The 8th National Development Plan calls for industrialisation and economic transformation. This is impossible without reliable, affordable power at scale.'
+      run: 'The 8th National Development Plan calls for industrialisatio' name=None size=127000 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=5.15 T=1.3 W=4.55 H=1.75  FILL=142C45
+  [AUTO_SHAPE (1)] L=5.15 T=1.3 W=4.55 H=0.1  FILL=D4A017
+  [PICTURE (13)] L=5.35 T=1.6 W=0.5 H=0.5
+  [AUTO_SHAPE (1)] L=6.0 T=1.48 W=3.55 H=0.4  TXT='Climate Commitments'
+      run: 'Climate Commitments' name=None size=165100 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=6.0 T=1.92 W=3.55 H=1.0  TXT='Zambia's NDC pledges low-carbon growth. Nuclear = 12g CO₂/kWh vs coal at 820g. Meeting climate goals AND economic growth requires nuclear.'
+      run: 'Zambia's NDC pledges low-carbon growth. Nuclear = 12g CO₂/kW' name=None size=127000 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=0.25 T=3.35 W=4.55 H=1.75  FILL=142C45
+  [AUTO_SHAPE (1)] L=0.25 T=3.35 W=4.55 H=0.1  FILL=0D7377
+  [PICTURE (13)] L=0.45 T=3.65 W=0.5 H=0.5
+  [AUTO_SHAPE (1)] L=1.1 T=3.53 W=3.55 H=0.4  TXT='Mining & Industrialisation'
+      run: 'Mining & Industrialisation' name=None size=165100 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=1.1 T=3.97 W=3.55 H=1.0  TXT='Copper mining, fertiliser production, and manufacturing all need 24/7 baseload power. Nuclear anchors Zambia's industrial future.'
+      run: 'Copper mining, fertiliser production, and manufacturing all ' name=None size=127000 bold=None italic=None color=8BA3B8
+  [AUTO_SHAPE (1)] L=5.15 T=3.35 W=4.55 H=1.75  FILL=142C45
+  [AUTO_SHAPE (1)] L=5.15 T=3.35 W=4.55 H=0.1  FILL=E67E22
+  [PICTURE (13)] L=5.35 T=3.65 W=0.5 H=0.5
+  [AUTO_SHAPE (1)] L=6.0 T=3.53 W=3.55 H=0.4  TXT='STEM & Human Capital'
+      run: 'STEM & Human Capital' name=None size=165100 bold=True italic=None color=E67E22
+  [AUTO_SHAPE (1)] L=6.0 T=3.97 W=3.55 H=1.0  TXT='A nuclear programme creates 10,000+ skilled jobs, elevates Zambia's universities, and builds a generation of scientists and engineers.'
+      run: 'A nuclear programme creates 10,000+ skilled jobs, elevates Z' name=None size=127000 bold=None italic=None color=8BA3B8
+
+=== SLIDE 8 ===
+  bg.type=SOLID (1) rgb=F0F4F8
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=1.1  FILL=1A3A5C
+  [AUTO_SHAPE (1)] L=0.5 T=0.08 W=9.0 H=0.35  TXT='ACT III — THE SOLUTION'
+      run: 'ACT III — THE SOLUTION' name=None size=120650 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=0.5 T=0.42 W=9.0 H=0.55  TXT='A 3-Phase Roadmap to Nuclear Power'
+      run: 'A 3-Phase Roadmap to Nuclear Power' name=Georgia size=355600 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.25 T=1.3 W=3.1 H=4.0  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=0.25 T=1.3 W=3.1 H=0.85  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=1.35 W=2.8 H=0.35  TXT='PHASE 1'
+      run: 'PHASE 1' name=None size=139700 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.4 T=1.72 W=2.8 H=0.3  TXT='2025–2030'
+      run: '2025–2030' name=None size=133350 bold=None italic=None color=E8F8F5
+  [AUTO_SHAPE (1)] L=0.4 T=2.2 W=2.8 H=0.4  TXT='Foundations'
+      run: 'Foundations' name=Georgia size=203200 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=2.68 W=2.8 H=0.46  TXT='→  Establish ZaNRA (Regulatory Authority)'
+      run: '→  ' name=None size=127000 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=3.16 W=2.8 H=0.46  TXT='→  Join IAEA milestone process'
+      run: '→  ' name=None size=127000 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=3.64 W=2.8 H=0.46  TXT='→  Launch nuclear engineering scholarships'
+      run: '→  ' name=None size=127000 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=4.12 W=2.8 H=0.46  TXT='→  Conduct site surveys & feasibility studies'
+      run: '→  ' name=None size=127000 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=0.4 T=4.6 W=2.8 H=0.46  TXT='→  Build public awareness campaign'
+      run: '→  ' name=None size=127000 bold=True italic=None color=0D7377
+  [AUTO_SHAPE (1)] L=3.5 T=1.3 W=3.1 H=4.0  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=3.5 T=1.3 W=3.1 H=0.85  FILL=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=1.35 W=2.8 H=0.35  TXT='PHASE 2'
+      run: 'PHASE 2' name=None size=139700 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=3.65 T=1.72 W=2.8 H=0.3  TXT='2030–2038'
+      run: '2030–2038' name=None size=133350 bold=None italic=None color=E8F8F5
+  [AUTO_SHAPE (1)] L=3.65 T=2.2 W=2.8 H=0.4  TXT='Construction'
+      run: 'Construction' name=Georgia size=203200 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=2.68 W=2.8 H=0.46  TXT='→  Select SMR technology & partner'
+      run: '→  ' name=None size=127000 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=3.16 W=2.8 H=0.46  TXT='→  Secure financing package'
+      run: '→  ' name=None size=127000 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=3.64 W=2.8 H=0.46  TXT='→  Begin construction of first 300 MW SMR'
+      run: '→  ' name=None size=127000 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=4.12 W=2.8 H=0.46  TXT='→  Build local supply chain'
+      run: '→  ' name=None size=127000 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=3.65 T=4.6 W=2.8 H=0.46  TXT='→  Train 500+ nuclear technicians'
+      run: '→  ' name=None size=127000 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=6.75 T=1.3 W=3.1 H=4.0  FILL=FFFFFF
+  [AUTO_SHAPE (1)] L=6.75 T=1.3 W=3.1 H=0.85  FILL=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=1.35 W=2.8 H=0.35  TXT='PHASE 3'
+      run: 'PHASE 3' name=None size=139700 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=6.9 T=1.72 W=2.8 H=0.3  TXT='2038–2050+'
+      run: '2038–2050+' name=None size=133350 bold=None italic=None color=E8F8F5
+  [AUTO_SHAPE (1)] L=6.9 T=2.2 W=2.8 H=0.4  TXT='Operation & Expansion'
+      run: 'Operation & Expansion' name=Georgia size=203200 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=2.68 W=2.8 H=0.46  TXT='→  First power to the grid (~2038)'
+      run: '→  ' name=None size=127000 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=3.16 W=2.8 H=0.46  TXT='→  Expand to 1,000+ MW by 2045'
+      run: '→  ' name=None size=127000 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=3.64 W=2.8 H=0.46  TXT='→  Export surplus power regionally via SAPP'
+      run: '→  ' name=None size=127000 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=4.12 W=2.8 H=0.46  TXT='→  Fund second plant from revenues'
+      run: '→  ' name=None size=127000 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=6.9 T=4.6 W=2.8 H=0.46  TXT='→  Become a regional nuclear hub'
+      run: '→  ' name=None size=127000 bold=True italic=None color=14A085
+  [AUTO_SHAPE (1)] L=3.35 T=3.3 W=0.55 H=0.0
+  [AUTO_SHAPE (1)] L=6.6 T=3.3 W=0.55 H=0.0
+
+=== SLIDE 9 ===
+  bg.type=SOLID (1) rgb=0B1D2E
+  [PICTURE (13)] L=5.5 T=0.2 W=4.5 H=4.5
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=0.12 H=5.625  FILL=D4A017
+  [AUTO_SHAPE (1)] L=0.35 T=0.5 W=7.0 H=0.4  TXT='THE BIG IDEA'
+      run: 'THE BIG IDEA' name=None size=139700 bold=True italic=None color=D4A017
+  [AUTO_SHAPE (1)] L=0.35 T=1.0 W=8.8 H=2.5  TXT='"Zambia cannot achieve its Vision 2030 development goals on a grid powered by rain alone — nuclear power is the decisive investment that ends load-shedding, anc'
+      run: '"Zambia cannot achieve its Vision 2030 development goals on ' name=Georgia size=254000 bold=None italic=True color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=3.55 W=0.5 H=0.45  FILL=D4A017
+  [AUTO_SHAPE (1)] L=0.35 T=3.6 W=0.5 H=0.35  TXT='01'
+      run: '01' name=None size=152400 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.97 T=3.61 W=8.0 H=0.38  TXT='Commission a national nuclear feasibility study NOW'
+      run: 'Commission a national nuclear feasibility study NOW' name=None size=165100 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=4.13 W=0.5 H=0.45  FILL=0D7377
+  [AUTO_SHAPE (1)] L=0.35 T=4.18 W=0.5 H=0.35  TXT='02'
+      run: '02' name=None size=152400 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.97 T=4.19 W=8.0 H=0.38  TXT='Establish the Zambia Nuclear Regulatory Authority'
+      run: 'Establish the Zambia Nuclear Regulatory Authority' name=None size=165100 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=4.71 W=0.5 H=0.45  FILL=14A085
+  [AUTO_SHAPE (1)] L=0.35 T=4.76 W=0.5 H=0.35  TXT='03'
+      run: '03' name=None size=152400 bold=True italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.97 T=4.77 W=8.0 H=0.38  TXT='Begin IAEA milestone consultations within 12 months'
+      run: 'Begin IAEA milestone consultations within 12 months' name=None size=165100 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.35 T=5.22 W=9.0 H=0.3  TXT='The lights don't have to keep going off.'
+      run: 'The lights don't have to keep going off.' name=None size=133350 bold=None italic=True color=8BA3B8
+
+=== SLIDE 10 ===
+  bg.type=SOLID (1) rgb=F0F4F8
+  [AUTO_SHAPE (1)] L=0.0 T=0.0 W=10.0 H=0.9  FILL=1A3A5C
+  [AUTO_SHAPE (1)] L=0.5 T=0.27 W=9.0 H=0.4  TXT='KEY EVIDENCE SOURCES & DATA NOTES'
+      run: 'KEY EVIDENCE SOURCES & DATA NOTES' name=None size=177800 bold=True italic=None color=FFFFFF
+  [AUTO_SHAPE (1)] L=0.4 T=1.05 W=9.2 H=4.2  TXT='1.  International Atomic Energy Agency (IAEA) — Nuclear Energy Basic Principles & SMR Technology Catalogue 2023 2.  World Nuclear Association — Nuclear Power Ec'
+      run: '1.  International Atomic Energy Agency (IAEA) — Nuclear Ener' name=None size=120650 bold=None italic=None color=0B1D2E
+  [AUTO_SHAPE (1)] L=0.4 T=5.18 W=9.2 H=0.3  TXT='Data points where noted are approximations based on published ranges. Specific Zambia statistics sourced from ZESCO and Ministry of Energy publications.'
+      run: 'Data points where noted are approximations based on publishe' name=None size=107950 bold=None italic=True color=8BA3B8
+

@@ -1,0 +1,92 @@
+extracted: media\image-1-1.png
+extracted: media\image-2-1.png
+extracted: media\image-2-2.png
+extracted: media\image-2-3.png
+extracted: media\image-3-1.png
+extracted: media\image-3-2.png
+extracted: media\image-3-3.png
+extracted: media\image-3-4.png
+extracted: media\image-4-1.png
+extracted: media\image-4-2.png
+extracted: media\image-4-3.png
+extracted: media\image-5-1.png
+extracted: media\image-5-2.png
+extracted: media\image-5-3.png
+extracted: media\image-5-4.png
+extracted: media\image-5-5.png
+extracted: media\image-5-6.png
+extracted: media\image-6-1.png
+extracted: media\image-6-2.png
+extracted: media\image-6-3.png
+extracted: media\image-6-4.png
+extracted: media\image-6-5.png
+extracted: media\image-6-6.png
+extracted: media\image-7-1.png
+extracted: media\image-7-2.png
+extracted: media\image-7-3.png
+extracted: media\image-7-4.png
+extracted: media\image-9-1.png
+
+--- FULL TEXT SLIDE 1 ---
+'NATIONAL ENERGY STRATEGY'
+'Zambia Needs'
+'Nuclear Power.'
+"The Big Idea: Zambia's chronic power deficit is strangling economic growth — nuclear power is the reliable, scalable, low-carbon solution that hydro and solar alone cannot provide."
+'A Case Built on Evidence · Economics · Science · Policy'
+
+--- FULL TEXT SLIDE 4 ---
+'ACT II — THE ECONOMICS'
+'The Cost of Doing Nothing Is Greater'
+'$2B+ annual GDP loss'
+"from load-shedding — Zambia's economy loses more every year than a nuclear plant costs to operate."
+'Green financing unlocked'
+'Nuclear qualifies for climate financing, SDG bonds & development bank funding unavailable for coal.'
+'50–60 year asset life'
+'Once built, nuclear provides generations of cheap, stable baseload power at $20–30/MWh operational cost.'
+'Morocco, Egypt, South Africa & Ghana are all actively pursuing nuclear — Zambia risks being left behind in the energy transition.'
+
+--- FULL TEXT SLIDE 9 ---
+'THE BIG IDEA'
+'"Zambia cannot achieve its Vision 2030 development goals on a grid powered by rain alone — nuclear power is the decisive investment that ends load-shedding, anchors industrialisation, and positions Zambia as Africa\'s next energy leader."'
+'01'
+'Commission a national nuclear feasibility study NOW'
+'02'
+'Establish the Zambia Nuclear Regulatory Authority'
+'03'
+'Begin IAEA milestone consultations within 12 months'
+"The lights don't have to keep going off."
+
+--- FULL TEXT SLIDE 10 ---
+'KEY EVIDENCE SOURCES & DATA NOTES'
+'1.  International Atomic Energy Agency (IAEA) — Nuclear Energy Basic Principles & SMR Technology Catalogue 2023\n2.  World Nuclear Association — Nuclear Power Economics 2024; LCOE comparisons\n3.  Zambia Electricity Supply Corporation (ZESCO) — Annual Reports 2022–2024; Generation capacity statistics\n4.  International Energy Agency (IEA) — Africa Energy Outlook 2023; Zambia grid access data (43%)\n5.  World Bank — Zambia Energy Sector Assessment 2023; Load-shedding economic impact ($2B+ GDP)\n6.  IPCC AR6 — Life-cycle GHG emissions by technology: Nuclear 12 gCO₂eq/kWh vs. Coal 820g\n7.  Zambia Ministry of Energy — 8th National Development Plan (8NDP) energy targets; Vision 2030\n8.  IAEA — Country Nuclear Power Profiles: Ghana, Kenya, Egypt — SMR development timelines\n9.  Rosatom International — Small Modular Reactor technical specifications & cost estimates\n10.  African Development Bank — Renewable energy financing and NDC green bond frameworks, 2024\n'
+'Data points where noted are approximations based on published ranges. Specific Zambia statistics sourced from ZESCO and Ministry of Energy publications.'
+
+--- PICTURES ---
+slide 1: L=7.80 T=1.00 W=1.60 H=1.60 src=image.png
+slide 2: L=1.45 T=1.55 W=0.70 H=0.70 src=image.png
+slide 2: L=4.70 T=1.55 W=0.70 H=0.70 src=image.png
+slide 2: L=7.95 T=1.55 W=0.70 H=0.70 src=image.png
+slide 3: L=1.07 T=1.35 W=0.60 H=0.60 src=image.png
+slide 3: L=3.52 T=1.35 W=0.60 H=0.60 src=image.png
+slide 3: L=5.97 T=1.35 W=0.60 H=0.60 src=image.png
+slide 3: L=8.42 T=1.35 W=0.60 H=0.60 src=image.png
+slide 4: L=6.20 T=1.50 W=0.45 H=0.45 src=image.png
+slide 4: L=6.20 T=2.65 W=0.45 H=0.45 src=image.png
+slide 4: L=6.20 T=3.80 W=0.45 H=0.45 src=image.png
+slide 5: L=0.50 T=1.95 W=0.30 H=0.30 src=image.png
+slide 5: L=0.50 T=2.39 W=0.30 H=0.30 src=image.png
+slide 5: L=0.50 T=2.83 W=0.30 H=0.30 src=image.png
+slide 5: L=0.50 T=3.27 W=0.30 H=0.30 src=image.png
+slide 5: L=0.50 T=3.71 W=0.30 H=0.30 src=image.png
+slide 5: L=0.50 T=4.15 W=0.30 H=0.30 src=image.png
+slide 6: L=0.45 T=1.75 W=0.35 H=0.35 src=image.png
+slide 6: L=0.45 T=3.17 W=0.35 H=0.35 src=image.png
+slide 6: L=0.45 T=4.59 W=0.35 H=0.35 src=image.png
+slide 6: L=5.30 T=1.75 W=0.35 H=0.35 src=image.png
+slide 6: L=5.30 T=3.17 W=0.35 H=0.35 src=image.png
+slide 6: L=5.30 T=4.59 W=0.35 H=0.35 src=image.png
+slide 7: L=0.45 T=1.60 W=0.50 H=0.50 src=image.png
+slide 7: L=5.35 T=1.60 W=0.50 H=0.50 src=image.png
+slide 7: L=0.45 T=3.65 W=0.50 H=0.50 src=image.png
+slide 7: L=5.35 T=3.65 W=0.50 H=0.50 src=image.png
+slide 9: L=5.50 T=0.20 W=4.50 H=4.50 src=image.png
