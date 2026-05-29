@@ -521,6 +521,14 @@ def slide_08(prs):
           "Fund second plant from revenues",
           "Become a regional nuclear hub"]),
     ]
+    # Hidden connector spacers between phase columns (matches hand-edit)
+    for left in (3.35, 6.6):
+        c = s.shapes.add_shape(MSO_SHAPE.RECTANGLE,
+                               Inches(left), Inches(3.3),
+                               Inches(0.55), Emu(0))
+        c.fill.background()
+        c.line.fill.background()
+
     for left, accent, label, dates, title, items in phases:
         rect(s, left, 1.3, 3.1, 4.0, WHITE)
         rect(s, left, 1.3, 3.1, 0.85, accent)
@@ -617,12 +625,12 @@ def slide_10(prs):
         "10.  African Development Bank — Renewable energy financing "
         "and NDC green bond frameworks, 2024",
     ]
-    runs = []
-    for i, line in enumerate(sources):
-        prefix = "\n" if i > 0 else ""
-        runs.append({"text": prefix + line, "size": 9.5,
-                     "color": NAVY_DEEP})
-    textbox(s, 0.4, 1.05, 9.2, 4.2, runs, line_spacing=1.35)
+    # One paragraph with soft line breaks — matches hand-edited rendering
+    textbox(
+        s, 0.4, 1.05, 9.2, 4.2,
+        [{"text": "\n".join(sources), "size": 9.5, "color": NAVY_DEEP}],
+        line_spacing=1.35,
+    )
 
     txt(s, 0.4, 5.18, 9.2, 0.3,
         "Data points where noted are approximations based on published "
